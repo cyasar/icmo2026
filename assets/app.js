@@ -31,7 +31,7 @@
   /* ------------------ arka plan işleri (Worker) ------------------ */
   let worker = null, jobId = 0; const pending = {};
   try {
-    worker = new Worker("assets/worker.js");
+    worker = new Worker("assets/worker.js?v=20261114a");
     worker.onmessage = (e) => { const cb = pending[e.data.id]; if (cb) { delete pending[e.data.id]; cb(e.data); } };
     worker.onerror = () => { worker = null; Object.keys(pending).forEach((id) => { const j = pending[id]; delete pending[id]; j.fallback(); }); };
   } catch (e) { worker = null; }

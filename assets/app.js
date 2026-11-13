@@ -31,7 +31,7 @@
   /* ------------------ arka plan işleri (Worker) ------------------ */
   let worker = null, jobId = 0; const pending = {};
   try {
-    worker = new Worker("assets/worker.js?v=20261114a");
+    worker = new Worker("assets/worker.js?v=20261114c");
     worker.onmessage = (e) => { const cb = pending[e.data.id]; if (cb) { delete pending[e.data.id]; cb(e.data); } };
     worker.onerror = () => { worker = null; Object.keys(pending).forEach((id) => { const j = pending[id]; delete pending[id]; j.fallback(); }); };
   } catch (e) { worker = null; }
@@ -437,6 +437,12 @@
     "CSP": ["o", "Content Security Policy (İçerik Güvenliği Politikası)", "Tarayıcıya sayfanın hangi kaynaklara erişebileceğini bildiren güvenlik kuralı. Burada dış bağlantılar tamamen kapalıdır."],
     "DOI": ["o", "Digital Object Identifier", "Bilimsel yayının kalıcı dijital kimliği; doi.org üzerinden doğrudan yayına gider."],
     "Öğr. Gör. Dr.": ["o", "Öğretim Görevlisi Doktor", "Akademik unvan."],
+    "Ö1": ["o", "Önerme 1", "Kuşak heterojenliği arttıkça kişiselleştirmenin göreli katkısı artar."],
+    "Ö2": ["o", "Önerme 2", "Katılımcı liderlik: iletişim ve yenilik ↑, karar hızı ↓."],
+    "Ö3": ["o", "Önerme 3", "Liderlik repertuvarı genişliği uyumu ve performansı artırır."],
+    "Ö4": ["o", "Önerme 4", "Kanal uyumsuzluğu |u − δ| iletişim etkinliğini azaltır."],
+    "Ö5": ["o", "Önerme 5", "Motivasyon ve iletişim yeniliği etkileşimli (M × I) olarak etkiler."],
+    "APC": ["s", "Age–Period–Cohort (Yaş–Dönem–Kuşak) analizi", "Yaş, ölçüm dönemi ve doğum kuşağı etkilerini birbirinden ayırmayı amaçlayan yöntemler ailesi."],
     "vd.": ["o", "ve diğerleri", "Üç veya daha fazla yazarlı kaynaklarda ilk yazardan sonra kullanılır (İng. et al.)."]
   };
   const keys = Object.keys(GLOSS).sort((a, b) => b.length - a.length).map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));

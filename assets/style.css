@@ -78,7 +78,7 @@ ul.clean li::before { content: ""; position: absolute; left: 0; top: .9em; width
 
 /* RQ */
 .rq { display: grid; grid-template-columns: auto 1fr; gap: .4em 1em; align-items: baseline; margin-bottom: .9em; }
-.rq b { font-size: 1.4em; color: var(--accent); font-variant-numeric: tabular-nums; }
+.rq > b { font-size: 1.4em; color: var(--accent); font-variant-numeric: tabular-nums; }
 
 /* generation cards */
 .gen-card { border-top: 6px solid var(--c); }
@@ -256,3 +256,7 @@ ol.refs { font-size: .8em; }
 @media (max-width: 900px) { .cols.eq3 { grid-template-columns: 1fr; } }
 .eqs .card.flat ul.clean.small { font-size: .8em; }
 .eqs .card.flat ul.clean.small li { font-size: 1em; }
+.steps.six { grid-template-columns: repeat(6, 1fr); }
+.rq.small { font-size: .82em; margin-bottom: .5em; }
+.rq.small > b { font-size: 1.15em; }
+@media (max-width: 900px) { .steps.six { grid-template-columns: 1fr; } }

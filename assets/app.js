@@ -31,7 +31,7 @@
   /* ------------------ arka plan işleri (Worker) ------------------ */
   let worker = null, jobId = 0; const pending = {};
   try {
-    worker = new Worker("assets/worker.js?v=20261114d");
+    worker = new Worker("assets/worker.js?v=20261114e");
     worker.onmessage = (e) => { const cb = pending[e.data.id]; if (cb) { delete pending[e.data.id]; cb(e.data); } };
     worker.onerror = () => { worker = null; Object.keys(pending).forEach((id) => { const j = pending[id]; delete pending[id]; j.fallback(); }); };
   } catch (e) { worker = null; }
@@ -449,7 +449,7 @@
   };
   const keys = Object.keys(GLOSS).sort((a, b) => b.length - a.length).map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
   const RX = new RegExp("(?<![\\p{L}\\p{N}])(" + keys.join("|") + ")(?![\\p{L}\\p{N}])", "gu");
-  const SKIP = "script,style,.katex,svg,select,option,textarea,button,a,.ab,.tip,canvas,input,.sign";
+  const SKIP = "script,style,.katex,svg,select,option,textarea,button,a,.ab,.tip,canvas,input,.sign,.author";
   function wrapAbbr(root) {
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: (n) => (!n.nodeValue.trim() || (n.parentElement && n.parentElement.closest(SKIP)) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT)

@@ -10,7 +10,7 @@
 <meta name="author" content="Cumali YAŞAR">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
-<link rel="stylesheet" href="assets/style.css?v=20261114d">
+<link rel="stylesheet" href="assets/style.css?v=20261114e">
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -24,7 +24,7 @@
   <h1>Örgüt Yönetiminde Matematiksel Modelleme Temelli Yönetim Stratejileri</h1>
   <p class="sub">Çok Kuşaklı Bir Yaklaşım: <strong>Kuşak-Duyarlı Yönetim Modeli (KDYM)</strong></p>
   <div class="gen-band"><span style="background:var(--s1)"></span><span style="background:var(--s2)"></span><span style="background:var(--s3)"></span><span style="background:var(--s4)"></span></div>
-  <p class="author">Cumali YAŞAR</p>
+  <p class="author">Öğr. Gör. Dr. Cumali YAŞAR</p>
   <p class="small">Çanakkale Onsekiz Mart Üniversitesi · Kasım 2026</p>
   <span class="hint">→ / Boşluk: ileri · N: konuşmacı notları · F: tam ekran</span>
  </div>
@@ -142,7 +142,7 @@
     <div class="btn-row" id="loopBtns"></div>
     <div class="card" id="cldInfo">
      <h3>Diyagramı nasıl okumalı?</h3>
-     <p class="small">Oklar nedenselliğin yönünü, <b style="color:#0f8a5f">+</b> aynı yönde, <b style="color:#c0392b">−</b> ters yönde etkiyi gösterir. Mavi kenarlı kutular <b>stoktur</b> (birikir); içleri zamanla dolar. Bir döngü seçin ya da bir düğümün üzerine gelin.</p>
+     <p class="small">Oklar nedenselliğin yönünü, <b style="color:#0f8a5f">+</b> aynı yönde, <b style="color:#c0392b">−</b> ters yönde etkiyi, <b>±</b> yöne bağlı etkiyi gösterir. Mavi kenarlı kutular <b>stoktur</b> (birikir); içleri zamanla dolar. Bir döngü seçin ya da bir düğümün üzerine gelin.</p>
     </div>
     <div class="card cld-time">
      <div class="ctrl"><label>Zaman <output><span id="cldT">0</span>. ay</output></label><input type="range" id="cldTime" min="0" max="72" step="1" value="0"></div>
@@ -184,7 +184,7 @@
   <div class="eqbig">\[F_g=\frac{1}{4^{\,1-\rho}}\sum_{k=1}^{4}\beta_{gk}\,\ell_{gk}^{\,\rho}\]</div>
   <div class="cols eq3">
    <div>
-    <div class="card flat"><h3>Ne söylüyor?</h3><p class="small">Bir kuşağın liderlikten algıladığı uyum, uygulanan her tarzın payının \(\ell_{gk}\), o kuşağın bu tarza duyarlılığıyla \(\beta_{gk}\) çarpılıp toplanmasıyla bulunur. \(\rho<1\) üssü <b>azalan getiri</b> yaratır: tek bir tarza yığılmak, aynı toplam çabayı tarzlara yaymaktan daha az uyum üretir. Payda \(4^{1-\rho}\) sonucu \([0,1]\) aralığına ölçekler.</p></div>
+    <div class="card flat"><h3>Ne söylüyor?</h3><p class="small">Bir kuşağın liderlikten algıladığı uyum, uygulanan her tarzın payının \(\ell_{gk}\), o kuşağın bu tarza duyarlılığıyla \(\beta_{gk}\) çarpılıp toplanmasıyla bulunur. \(\rho&lt;1\) üssü <b>azalan getiri</b> yaratır: tek bir tarza yığılmak, aynı toplam çabayı tarzlara yaymaktan daha az uyum üretir. Payda \(4^{1-\rho}\) sonucu \([0,1]\) aralığına ölçekler.</p></div>
     <div class="card flat"><h3>Neden önemli?</h3><ul class="clean small"><li>Liderlik “tek doğru tarz” değil, bir <b>repertuvar</b> olarak modellenir (davranışsal karmaşıklık).</li><li>Kuşak farkları kalıp yargı olarak değil, ölçülebilir \(\beta_{gk}\) katsayılarıyla girer.</li><li>Kişiselleştirilmiş liderliğin (\(\boldsymbol\ell_g\) kuşağa göre farklı) matematiksel temelidir.</li></ul></div>
    </div>
    <div class="card worked"><h3>Adım adım sayısal örnek</h3>
@@ -219,7 +219,7 @@ F_Z&=1{,}2187/1{,}7411=\mathbf{0{,}700}
   <div class="cols eq3">
    <div>
     <div class="card flat"><h3>Ne söylüyor?</h3><p class="small">Motivasyon bir <b>stoktur</b>: anlık değil, zamanla birikir ve azalır. Üç kaynaktan beslenir: liderlik uyumu \(F_g\), iletişim \(I_g\) ve örgütün başarısı \(P\). Zaten yüksek olan motivasyonu artırmak zorlaşır (doygunluk), beslenmeyen motivasyon da sabit oranla aşınır.</p></div>
-    <div class="card flat"><h3>Neden önemli?</h3><ul class="clean small"><li><b>Gecikme:</b> bugünkü liderlik kararının etkisi aylar içinde ortaya çıkar; kısa vadeli ölçüm yanıltır.</li><li>\(\kappa P\) terimi <b>başarı sarmalını</b> (R1) kurar: başarı motivasyonu, motivasyon başarıyı besler.</li><li>Denge düzeyi analitik olarak bulunabilir: \(M_g^{*}=\dfrac{a_M X}{a_M X+b_M}\) (\(X\): besleme terimi).</li></ul></div>
+    <div class="card flat"><h3>Neden önemli?</h3><ul class="clean small"><li><b>Gecikme:</b> bugünkü liderlik kararının etkisi aylar içinde ortaya çıkar; kısa vadeli ölçüm yanıltır.</li><li>\(\kappa P\) terimi R1 ve R2 <b>pekiştiren döngülerini</b> kapatır: başarı motivasyonu, motivasyon da başarıyı besler.</li><li>Denge düzeyi analitik olarak bulunabilir: \(M_g^{*}=\dfrac{a_M X}{a_M X+b_M}\) (\(X\): besleme terimi).</li></ul></div>
    </div>
    <div class="card worked"><h3>Adım adım sayısal örnek</h3>
 <p class="small">Z kuşağı, Hibrit senaryo, \(t=0\): \(M_Z=I_Z=0{,}5\), \(F_Z=0{,}700\), \(P(0)=0{,}4547\)</p>
@@ -278,7 +278,7 @@ Q_{\text{Alfa}}&=1-|0{,}65-0{,}95|=0{,}70\\
    </tbody></table>
   </div>
  </div>
- <aside class="notes">Kanalın bir liderlik kararı olduğunu vurgula. Örnek: tamamen dijital bir şirket Y kuşağını, tamamen yüz yüze bir şirket Alfa ve Z kuşağını kaybeder.</aside>
+ <aside class="notes">Kanalın bir liderlik kararı olduğunu vurgula. Örnek: tamamen dijital bir şirket Y kuşağıyla, tamamen yüz yüze bir şirket Alfa ve Z kuşaklarıyla zayıf iletişim kurar (Q düşer).</aside>
 </section>
 
 <!-- D4 -->
@@ -322,7 +322,7 @@ V&=0{,}785\times0{,}75=\mathbf{0{,}589}
   <div class="cols eq3">
    <div>
     <div class="card flat"><h3>Ne söylüyor?</h3><p class="small">Yenilik kapasitesi örgüt düzeyinde birikir. Kaynağı, kuşakların <b>hem motive hem de iyi iletişim halinde</b> olmasıdır: \(M_g I_g\) çarpımı nedeniyle ikisinden biri sıfırsa o kuşağın yeniliğe katkısı da sıfırdır. Dönüşümcü ve katılımcı liderlik bu birikimi \(\chi\) oranında hızlandırır.</p></div>
-    <div class="card flat"><h3>Neden önemli?</h3><ul class="clean small"><li><b>Çarpımsal yapı:</b> motivasyon ile iletişim birbirinin yerine geçmez, birbirini tamamlar.</li><li>Yenilik en yavaş birikimli stoktur (\(b_K=0{,}04\)): uzun vadeli yatırım gerektirir.</li><li>Kısa vadede hızlı etkileşimci yönetim, uzun vadede yenilik kaybına yol açabilir.</li></ul></div>
+    <div class="card flat"><h3>Neden önemli?</h3><ul class="clean small"><li><b>Çarpımsal yapı:</b> motivasyon ile iletişim birbirinin yerine geçmez, birbirini tamamlar.</li><li>Yenilik en yavaş birikimli stoktur: büyüme hızı en düşüktür (\(a_K=0{,}075\)), zaman sabiti yaklaşık 12–15 aydır (motivasyonda ≈7 ay). Uzun vadeli yatırım gerektirir.</li><li>Kısa vadede hızlı etkileşimci yönetim, uzun vadede yenilik kaybına yol açabilir.</li></ul></div>
    </div>
    <div class="card worked"><h3>Adım adım sayısal örnek</h3>
 <p class="small">Hibrit senaryo, \(t=0\): tüm \(M_g=I_g=0{,}5\), \(K=0{,}3\)</p>
@@ -332,7 +332,7 @@ V&=0{,}785\times0{,}75=\mathbf{0{,}589}
 \dot K&=0{,}075(0{,}25)(1{,}36)(0{,}7)-0{,}04(0{,}3)\\
 &=0{,}0179-0{,}0120=\mathbf{0{,}0059}\ \text{ay}^{-1}
 \end{aligned}\]
-<p class="small">Çarpımın etkisi: \(M=0{,}70,\,I=0{,}20\Rightarrow MI=0{,}14\); \(M=I=0{,}45\Rightarrow MI\approx0{,}20\). Dengeli durum yaklaşık %45 daha fazla yenilik girdisi üretir.</p></div>
+<p class="small">Çarpımın etkisi (toplamlar aynı, 0,90): \(M=0{,}70,\,I=0{,}20\Rightarrow MI=0{,}14\); \(M=I=0{,}45\Rightarrow MI\approx0{,}20\). Dengeli durum yaklaşık %45 daha fazla yenilik girdisi üretir.</p></div>
    <table class="data nota"><thead><tr><th>Simge</th><th>Tanım</th></tr></thead><tbody>
     <tr><td>\(K\)</td><td>Örgütün yenilik kapasitesi, \([0,1]\); \(K_0=0{,}3\)</td></tr>
     <tr><td>\(a_K\)</td><td>Yenilik büyüme hızı; 0,075 ay\(^{-1}\)</td></tr>
@@ -354,7 +354,7 @@ V&=0{,}785\times0{,}75=\mathbf{0{,}589}
   <div class="eqbig">\[P=\bar M^{\theta_1}\,\bar I^{\theta_2}\,K^{\theta_3}\,V^{\theta_4},\qquad \textstyle\sum_i\theta_i=1\]</div>
   <div class="cols eq3">
    <div>
-    <div class="card flat"><h3>Ne söylüyor?</h3><p class="small">Performans dört bileşenin <b>Cobb–Douglas</b> birleşimidir: motivasyon, iletişim, yenilik ve karar hızı. Üsler \(\theta_i\) birer <b>esnekliktir</b>: bir bileşen %1 artarsa performans yaklaşık %\(\theta_i\) artar. Üslerin toplamı 1 olduğundan \(P\) de \([0,1]\) aralığında kalır.</p></div>
+    <div class="card flat"><h3>Ne söylüyor?</h3><p class="small">Performans dört bileşenin <b>Cobb–Douglas</b> birleşimidir: motivasyon, iletişim, yenilik ve karar hızı. Üsler \(\theta_i\) birer <b>esnekliktir</b>: bir bileşen %1 artarsa performans yaklaşık %\(\theta_i\) artar. Bileşenler \([0,1]\) aralığında ve üsler pozitif olduğundan \(P\) de \([0,1]\)\'de kalır. \(\sum\theta_i=1\) <b>ölçeğe göre sabit getiri</b> demektir: bütün bileşenler aynı oranda artarsa \(P\) de aynı oranda artar.</p></div>
     <div class="card flat"><h3>Neden önemli?</h3><ul class="clean small"><li><b>İkame edilemezlik:</b> bir bileşen sıfıra yaklaşırsa diğerleri ne kadar yüksek olursa olsun performans çöker.</li><li>Tek bir göstergeyi en büyüklemek yerine <b>dengeli gelişim</b> ödüllendirilir.</li><li>\(\theta\) ağırlıkları sektöre göre (örn. kamu ve girişim) ampirik olarak tahmin edilebilir.</li></ul></div>
    </div>
    <div class="card worked"><h3>Adım adım sayısal örnek</h3>
@@ -396,7 +396,7 @@ P&=0{,}5^{0{,}30}\cdot0{,}5^{0{,}25}\cdot0{,}3^{0{,}25}\cdot0{,}589^{0{,}20}\\
 \sigma_M&=\sqrt{\textstyle\sum_g w_g(M_g-\bar M)^2}=0{,}0153\\
 E&=1-0{,}0153/0{,}631=\mathbf{0{,}976}
 \end{aligned}\]
-<p class="small">Amaç: tek tip optimumda \(\bar P=0{,}580\), \(E=0{,}995\), \(\gamma=2\) için \(J=0{,}580-2(1-0{,}995)=0{,}569\).</p></div>
+<p class="small">Amaç: tek tip optimumda \(\bar P=0{,}5798\), \(E=0{,}9948\), \(\gamma=2\) için \(J=0{,}5798-2(0{,}0052)=0{,}5693\).</p></div>
    <table class="data nota"><thead><tr><th>Simge</th><th>Tanım</th></tr></thead><tbody>
     <tr><td>\(J\)</td><td>Amaç fonksiyonu (en büyüklenecek değer)</td></tr>
     <tr><td>\(\boldsymbol\ell,\;u\)</td><td>Karar değişkenleri: liderlik karması ve dijital kanal payı</td></tr>
@@ -635,13 +635,13 @@ E&=1-0{,}0153/0{,}631=\mathbf{0{,}976}
   <div class="cols">
    <div>
     <div class="card flat" style="margin-bottom:.7em"><h3>Küçük farklar, büyük kararlar</h3><p class="small">Modelde kuşaklar arası motivasyon açığı sayısal olarak küçüktür; bu, kuşak farklarının çoğunlukla küçük olduğunu gösteren meta-analitik bulgularla (<a href="https://doi.org/10.1007/s10869-012-9259-4" target="_blank" rel="noopener">Costanza vd., 2012 ↗</a>) tutarlıdır. Ancak açığın büyüklüğü <b>strateji seçimine göre değişir</b>: kuşak etkisi tek başına değil, <b>strateji × bağlam etkileşimi</b> olarak ortaya çıkar.</p></div>
-    <div class="card flat" style="margin-bottom:.7em"><h3>Türkiye bağlamı</h3><p class="small">Türkiye’de bütün kuşakların Y kuşağına benzer beklentiler taşıdığı bulgusu (<a href="https://www.ceeol.com/search/article-detail?id=690373" target="_blank" rel="noopener">Demirkaya vd., 2015 ↗</a>), modelde kuşak parametrelerinin birbirine yaklaşması demektir. Model bu durumda <b>kişiselleştirme kazancının azalacağını</b> öngörür: kuşaklar özdeşse kişiselleştirmenin ek değeri sıfırdır (simetri testi).</p></div>
+    <div class="card flat" style="margin-bottom:.7em"><h3>Türkiye bağlamı</h3><p class="small">Türkiye’de bütün kuşakların Y kuşağına benzer beklentiler taşıdığı bulgusu (<a href="https://www.ceeol.com/search/article-detail?id=690373" target="_blank" rel="noopener">Demirkaya vd., 2015 ↗</a>), modelde kuşak parametrelerinin birbirine yaklaşması demektir. Model bu durumda <b>kişiselleştirme kazancının azalacağını</b> öngörür. Model içi deneyde kuşak farklılığı ölçeklendiğinde kazanç düzenli olarak değişir: özdeş kuşaklarda ≈%0, yarı farklılıkta %0,85, varsayılanda %2,0, 1,5 katında %3,4.</p></div>
     <div class="card flat"><h3>Katılım: tek boyutlu değil, ödünleşimli</h3><p class="small">Z kuşağında katılımcı liderliğin takım performansına olumlu etkisi (<a href="https://doi.org/10.35408/comuybd.1020035" target="_blank" rel="noopener">İnal ve Akdemir, 2022 ↗</a>) modelle uyumludur. KDYM buna <b>karar hızı maliyetini</b> ekler: performans çok boyutlu ölçüldüğünde optimum, saf katılım değil karmadır. Bu, davranışsal karmaşıklık kuramıyla (<a href="https://doi.org/10.1287/orsc.6.5.524" target="_blank" rel="noopener">Denison vd., 1995 ↗</a>) örtüşür.</p></div>
    </div>
    <div class="card">
     <h3>Sınanabilir önermeler</h3>
     <p class="small muted">Model, saha araştırmalarıyla doğrudan test edilebilecek beş önerme üretir:</p>
-    <div class="rq small"><b>Ö1</b><div>Kuşak heterojenliği arttıkça kuşağa göre kişiselleştirilmiş liderliğin performansa göreli katkısı artar.</div></div>
+    <div class="rq small"><b>Ö1</b><div>Kuşak heterojenliği arttıkça kuşağa göre kişiselleştirilmiş liderliğin performansa göreli katkısı artar (model içinde: %0 → %3,4).</div></div>
     <div class="rq small"><b>Ö2</b><div>Katılımcı liderlik payı iletişim ve yenilikle pozitif, karar hızıyla negatif ilişkilidir.</div></div>
     <div class="rq small"><b>Ö3</b><div>Liderlik repertuvarının genişliği (tarz çeşitliliği), tek tarza yoğunlaşmaya göre daha yüksek uyum ve performansla ilişkilidir.</div></div>
     <div class="rq small"><b>Ö4</b><div>Kanal uyumsuzluğu \(|u-\delta_g|\) arttıkça ilgili kuşakla iletişim etkinliği azalır.</div></div>
@@ -734,8 +734,8 @@ E&=1-0{,}0153/0{,}631=\mathbf{0{,}976}
    <li>Akdemir, A., Konakay, G., &amp; Demirkaya, H. (2013). Y kuşağının kariyer algısı, kariyer değişimi ve liderlik tarzı beklentilerinin araştırılması. <em>Ekonomi ve Yönetim Araştırmaları Dergisi, 2</em>(2), 11–42. <a href="https://dergipark.org.tr/tr/pub/eyad/article/813938" target="_blank" rel="noopener">dergipark.org.tr ↗</a></li>
    <li>Barlas, Y. (1996). Formal aspects of model validity and validation in system dynamics. <em>System Dynamics Review, 12</em>(3), 183–210. <a href="https://doi.org/10.1002/(SICI)1099-1727(199623)12:3%3C183::AID-SDR103%3E3.0.CO;2-4" target="_blank" rel="noopener">doi.org/10.1002/(SICI)1099-1727(199623)12:3&lt;183::AID-SDR103&gt;3.0.CO;2-4</a></li>
    <li>Costanza, D. P., Badger, J. M., Fraser, R. L., Severt, J. B., &amp; Gade, P. A. (2012). Generational differences in work-related attitudes: A meta-analysis. <em>Journal of Business and Psychology, 27</em>(4), 375–394. <a href="https://doi.org/10.1007/s10869-012-9259-4" target="_blank" rel="noopener">doi.org/10.1007/s10869-012-9259-4</a></li>
-   <li>Denison, D. R., Hooijberg, R., &amp; Quinn, R. E. (1995). Paradox and performance: Toward a theory of behavioral complexity in managerial leadership. <em>Organization Science, 6</em>(5), 524–540. <a href="https://doi.org/10.1287/orsc.6.5.524" target="_blank" rel="noopener">doi.org/10.1287/orsc.6.5.524</a></li>
    <li>Demirkaya, H., Akdemir, A., Karaman, E., &amp; Atan, Ö. (2015). Kuşakların yönetim politikası beklentilerinin araştırılması. <em>İşletme Araştırmaları Dergisi, 7</em>(1), 186–204. <a href="https://www.ceeol.com/search/article-detail?id=690373" target="_blank" rel="noopener">ceeol.com ↗</a></li>
+   <li>Denison, D. R., Hooijberg, R., &amp; Quinn, R. E. (1995). Paradox and performance: Toward a theory of behavioral complexity in managerial leadership. <em>Organization Science, 6</em>(5), 524–540. <a href="https://doi.org/10.1287/orsc.6.5.524" target="_blank" rel="noopener">doi.org/10.1287/orsc.6.5.524</a></li>
    <li>Dimock, M. (2019). <em>Defining generations: Where Millennials end and Generation Z begins.</em> Pew Research Center. <a href="https://www.pewresearch.org/short-reads/2019/01/17/where-millennials-end-and-generation-z-begins/" target="_blank" rel="noopener">pewresearch.org ↗</a></li>
    <li>Forrester, J. W. (1961). <em>Industrial dynamics.</em> MIT Press. <a href="https://scholar.google.com/scholar?q=Forrester+1961+Industrial+dynamics" target="_blank" rel="noopener">Google Scholar ↗</a></li>
    <li>Hwang, C.-L., &amp; Yoon, K. (1981). <em>Multiple attribute decision making: Methods and applications.</em> Springer. <a href="https://doi.org/10.1007/978-3-642-48318-9" target="_blank" rel="noopener">doi.org/10.1007/978-3-642-48318-9</a></li>
@@ -792,8 +792,8 @@ E&=1-0{,}0153/0{,}631=\mathbf{0{,}976}
 <script src="assets/vendor/katex/katex.min.js"></script>
 <script src="assets/vendor/katex/auto-render.min.js"></script>
 <script src="assets/vendor/chart.umd.min.js"></script>
-<script src="assets/model.js?v=20261114d"></script>
-<script src="assets/app.js?v=20261114d"></script>
-<script src="assets/cld.js?v=20261114d"></script>
+<script src="assets/model.js?v=20261114e"></script>
+<script src="assets/app.js?v=20261114e"></script>
+<script src="assets/cld.js?v=20261114e"></script>
 </body>
 </html>

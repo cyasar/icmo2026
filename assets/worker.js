@@ -1,5 +1,5 @@
 /* Ağır hesaplar (optimizasyon, Monte Carlo, test paketi) arayüzü dondurmasın diye */
-importScripts("model.js?v=20261114d");
+importScripts("model.js?v=20261114e");
 self.onmessage = function (e) {
   const m = e.data, K = self.KDYM;
   try {

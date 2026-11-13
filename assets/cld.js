@@ -18,8 +18,8 @@
   };
   const W = 150, H = 56;
   const E = [
-    { id: "LF", d: "M150 310 L 268 222", s: "+" },
-    { id: "UQ", d: "M185 588 L 255 524", s: "+" },
+    { id: "LF", d: "M150 310 L 268 222", s: "±" },
+    { id: "UQ", d: "M185 588 L 255 524", s: "±" },
     { id: "FM", d: "M395 190 L 460 190", s: "+" },
     { id: "QI", d: "M395 490 L 460 490", s: "+" },
     { id: "IM", d: "M540 462 L 540 224", s: "+" },
@@ -84,7 +84,7 @@
     const len = p.getTotalLength(), mid = p.getPointAtLength(len * (e.self ? 0.5 : 0.55)), a = p.getPointAtLength(len * 0.5 - 1), b = p.getPointAtLength(len * 0.5 + 1);
     let nx = -(b.y - a.y), ny = b.x - a.x; const nl = Math.hypot(nx, ny) || 1; nx /= nl; ny /= nl;
     const off = e.self ? 0 : 14;
-    const t = el("text", { x: mid.x + nx * off, y: mid.y + ny * off + 6, class: "sign" + (e.s === "−" ? " neg" : ""), "text-anchor": "middle" }, gS);
+    const t = el("text", { x: mid.x + nx * off, y: mid.y + ny * off + 6, class: "sign" + (e.s === "−" ? " neg" : e.s === "±" ? " amb" : ""), "text-anchor": "middle" }, gS);
     t.textContent = e.s; e.signEl = t;
   });
 

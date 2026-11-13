@@ -311,3 +311,4 @@ svg.cld .pt.b { fill: #c0392b; } svg.cld .pt.y { fill: #1baf7a; } svg.cld .pt.t 
 #cldInfo h3 { font-size: .95em; }
 @media (prefers-reduced-motion: reduce) { svg.cld .edge { animation: none; } }
 @media (max-width: 900px) { .cldcols { grid-template-columns: 1fr; } }
+svg.cld .sign.amb { fill: #b26b00; }

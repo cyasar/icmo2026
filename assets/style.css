@@ -232,3 +232,27 @@ table.nota td:last-child { color: var(--muted); white-space: nowrap; }
 table.nota { font-size: .76em; }
 ol.refs { font-size: .8em; }
 .gen-card .yrs a, .note-box a, .card a { font-weight: 600; }
+
+/* denklem slaytları */
+.eqbig { background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--navy-2); border-radius: 12px; padding: .2em 1em; margin-bottom: .9em; box-shadow: var(--shadow); }
+.eqbig .katex-display { margin: .5em 0; }
+.eqbig .katex { font-size: 1.35em; }
+.cols.eq3 { grid-template-columns: 1.05fr 1.1fr .95fr; gap: 1.4vw; }
+.eqs .card.flat { margin-bottom: .7em; padding: .8em 1em; }
+.eqs .card.flat p, .eqs .card.flat li { font-size: .78em; }
+.eqs .card.flat ul.clean li { padding: .2em 0 .2em 1.2em; }
+.card.worked { background: #f1f6fd; border-color: #cfe0f6; box-shadow: none; padding: .8em 1em; }
+.card.worked h3 { color: #1c5cab; }
+.card.worked .small { font-size: .74em; margin-bottom: .3em; }
+.card.worked .katex-display { margin: .4em 0; text-align: left; }
+.card.worked .katex-display > .katex { font-size: .92em; text-align: left; }
+.eqs table.nota td:last-child { white-space: normal; color: var(--ink-2); }
+.eqs table.nota td:first-child { width: auto; }
+/* iletişim */
+.contact { display: grid; gap: .35em; margin: .6em 0 1em; font-size: .9em; }
+.contact .ci { display: inline-flex; width: 1.7em; height: 1.7em; align-items: center; justify-content: center; border-radius: 50%; background: #eef1fa; color: var(--navy); font-weight: 700; font-size: .8em; margin-right: .6em; }
+.contact a { text-decoration: none; }
+.sign { font-weight: 800; color: var(--navy); font-size: 1.1em; margin-top: .4em; }
+@media (max-width: 900px) { .cols.eq3 { grid-template-columns: 1fr; } }
+.eqs .card.flat ul.clean.small { font-size: .8em; }
+.eqs .card.flat ul.clean.small li { font-size: 1em; }

@@ -436,11 +436,12 @@
     "S5": ["o", "Senaryo 5: Hibrit-Uyarlanabilir", "ℓ = 35/15/25/25, u = 0,65"],
     "CSP": ["o", "Content Security Policy (İçerik Güvenliği Politikası)", "Tarayıcıya sayfanın hangi kaynaklara erişebileceğini bildiren güvenlik kuralı. Burada dış bağlantılar tamamen kapalıdır."],
     "DOI": ["o", "Digital Object Identifier", "Bilimsel yayının kalıcı dijital kimliği; doi.org üzerinden doğrudan yayına gider."],
+    "Öğr. Gör. Dr.": ["o", "Öğretim Görevlisi Doktor", "Akademik unvan."],
     "vd.": ["o", "ve diğerleri", "Üç veya daha fazla yazarlı kaynaklarda ilk yazardan sonra kullanılır (İng. et al.)."]
   };
   const keys = Object.keys(GLOSS).sort((a, b) => b.length - a.length).map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
   const RX = new RegExp("(?<![\\p{L}\\p{N}])(" + keys.join("|") + ")(?![\\p{L}\\p{N}])", "gu");
-  const SKIP = "script,style,.katex,svg,select,option,textarea,button,a,.ab,.tip,canvas,input";
+  const SKIP = "script,style,.katex,svg,select,option,textarea,button,a,.ab,.tip,canvas,input,.sign";
   function wrapAbbr(root) {
     const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
       acceptNode: (n) => (!n.nodeValue.trim() || (n.parentElement && n.parentElement.closest(SKIP)) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT)

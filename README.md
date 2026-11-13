@@ -21,7 +21,7 @@ Canlı sunum: https://cyasar.github.io/icmo2026/
 | ← / PageUp | önceki slayt |
 | N | konuşmacı notları |
 | F | tam ekran |
-| sayı + Enter | ilgili slayda atla (ör. `11` Enter) |
+| sayı + Enter | ilgili slayda atla (ör. `17` Enter) |
 
 Tüm kütüphaneler (`assets/vendor`) yereldir; sunum internetsiz çalışır. Yerelde en sağlıklı açılış için:
 ```

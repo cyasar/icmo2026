@@ -362,6 +362,7 @@
     i = Math.max(0, Math.min(slides.length - 1, i));
     slides.forEach((s, k) => { s.classList.toggle("active", k === i); s.classList.toggle("prev", k < i); });
     cur = i;
+    const tp = document.getElementById("tip"); if (tp) tp.classList.remove("show");
     $("#count").textContent = i + 1 + " / " + slides.length;
     $("#progress").style.width = ((i + 1) / slides.length) * 100 + "%";
     const n = $(".notes", slides[i]);
@@ -400,8 +401,92 @@
   });
   window.addEventListener("hashchange", () => { const n = parseInt(location.hash.slice(1), 10); if (n && n - 1 !== cur) go(n - 1, true); });
 
+  /* ===================== kısaltma sözlüğü ve açıklama baloncukları ===================== */
+  // kategori: m = yöntem, s = sayısal/matematik, l = liderlik tarzı, o = diğer
+  const GLOSS = {
+    "ÇKKV": ["m", "Çok Kriterli Karar Verme", "Birden fazla ve çoğu zaman birbiriyle çelişen ölçüte göre seçenekleri karşılaştırıp sıralayan yöntemler ailesi. Bu çalışmada AHP (ağırlıklar) ve TOPSIS (sıralama) birlikte kullanılır."],
+    "AHP": ["m", "Analytic Hierarchy Process (Analitik Hiyerarşi Süreci)", "Ölçütleri ikişer ikişer karşılaştırıp (Saaty 1–9 ölçeği) karşılaştırma matrisinin özvektöründen ölçüt ağırlıklarını hesaplayan yöntem (Saaty, 1980)."],
+    "TOPSIS": ["m", "Technique for Order Preference by Similarity to Ideal Solution", "İdeal çözüme benzerliğe göre sıralama tekniği: seçenekleri en iyi (ideal) çözüme yakınlık ve en kötü çözüme uzaklık oranına göre sıralar (Hwang & Yoon, 1981)."],
+    "SMAA": ["m", "Stochastic Multicriteria Acceptability Analysis", "Stokastik çok ölçütlü kabul edilebilirlik analizi: belirsizlik altında her seçeneğin her sırada olma olasılığını hesaplar."],
+    "KDYM": ["o", "Kuşak-Duyarlı Yönetim Modeli", "Bu çalışmada önerilen sistem dinamiği + optimizasyon + ÇKKV modeli."],
+    "ADD": ["s", "Adi Diferansiyel Denklem", "Tek bir bağımsız değişkene (burada zamana) göre türevleri içeren denklem. KDYM 9 ADD'den oluşur."],
+    "RK4": ["s", "Dördüncü mertebe Runge–Kutta yöntemi", "Diferansiyel denklemleri sayısal olarak çözen klasik yöntem; her adımda dört eğim tahmininin ağırlıklı ortalamasını kullanır."],
+    "CR": ["s", "Consistency Ratio (Tutarlılık Oranı)", "CR = CI / RI. AHP yargılarının tutarlılığını ölçer; 0,10'un altı kabul edilir."],
+    "CI": ["s", "Consistency Index (Tutarlılık İndeksi)", "CI = (λmax − n) / (n − 1). Tam tutarlı matriste 0'dır."],
+    "RI": ["s", "Random Index (Rastgele İndeks)", "Rastgele doldurulmuş karşılaştırma matrislerinin ortalama CI değeri; n = 6 için 1,24."],
+    "R²": ["s", "Belirlilik katsayısı", "Modelin gözlenen verideki değişkenliğin ne kadarını açıkladığını gösterir (0–1)."],
+    "Theil U": ["s", "Theil eşitsizlik istatistikleri", "Model ile gerçek veri arasındaki hatayı yanlılık, varyans ve kovaryans bileşenlerine ayırır; sistem dinamiğinde davranış doğrulamasında kullanılır."],
+    "SEM": ["s", "Structural Equation Modeling (Yapısal Eşitlik Modellemesi)", "Gizil değişkenler arasındaki ilişkileri ölçüm modeliyle birlikte tahmin eden istatistiksel yöntem."],
+    "PLS": ["s", "Partial Least Squares (Kısmi En Küçük Kareler)", "Varyans temelli yapısal eşitlik modellemesi (PLS-SEM) yaklaşımı."],
+    "DÖN": ["l", "Dönüşümcü liderlik", "Vizyon, ilham, entelektüel uyarım ve bireysel ilgi yoluyla çalışanları ortak amaç için dönüştüren liderlik tarzı."],
+    "ETK": ["l", "Etkileşimci liderlik (transactional)", "Hedef, ödül ve denetime dayalı karşılıklı alışveriş ilişkisi kuran liderlik tarzı."],
+    "KAT": ["l", "Katılımcı liderlik", "Kararlara çalışanların katılımını sağlayan, ortak karar almaya dayalı liderlik tarzı."],
+    "DİJ": ["l", "Dijital liderlik (e-liderlik)", "Dijital araçlar ve uzaktan iletişim kanalları üzerinden yürütülen liderlik."],
+    "AS1": ["o", "Araştırma Sorusu 1", "Kuşak duyarlılıklarının performansa dinamik etkisi"],
+    "AS2": ["o", "Araştırma Sorusu 2", "Senaryoların çok ölçütlü sıralaması"],
+    "AS3": ["o", "Araştırma Sorusu 3", "Optimum karma ve kişiselleştirmenin değeri"],
+    "AS4": ["o", "Araştırma Sorusu 4", "Sağlamlık ve geçerlilik"],
+    "R1": ["o", "Pekiştiren döngü 1 (Reinforcing)", "Başarı sarmalı: motivasyon → yenilik → performans → motivasyon."],
+    "R2": ["o", "Pekiştiren döngü 2 (Reinforcing)", "İletişim kaldıracı: iletişim → motivasyon ve yenilik → performans."],
+    "B1": ["o", "Dengeleyen döngü 1 (Balancing)", "Doygunluk ve aşınma: stoklar sınırsız büyümez."],
+    "S1": ["o", "Senaryo 1: Geleneksel–Etkileşimci", "ℓ = 15/60/10/15, u = 0,30"],
+    "S2": ["o", "Senaryo 2: Dönüşümcü", "ℓ = 60/15/15/10, u = 0,50"],
+    "S3": ["o", "Senaryo 3: Katılımcı", "ℓ = 15/10/60/15, u = 0,50"],
+    "S4": ["o", "Senaryo 4: Dijital-öncelikli", "ℓ = 15/10/15/60, u = 0,85"],
+    "S5": ["o", "Senaryo 5: Hibrit-Uyarlanabilir", "ℓ = 35/15/25/25, u = 0,65"],
+    "CSP": ["o", "Content Security Policy (İçerik Güvenliği Politikası)", "Tarayıcıya sayfanın hangi kaynaklara erişebileceğini bildiren güvenlik kuralı. Burada dış bağlantılar tamamen kapalıdır."],
+    "DOI": ["o", "Digital Object Identifier", "Bilimsel yayının kalıcı dijital kimliği; doi.org üzerinden doğrudan yayına gider."],
+    "vd.": ["o", "ve diğerleri", "Üç veya daha fazla yazarlı kaynaklarda ilk yazardan sonra kullanılır (İng. et al.)."]
+  };
+  const keys = Object.keys(GLOSS).sort((a, b) => b.length - a.length).map((k) => k.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"));
+  const RX = new RegExp("(?<![\\p{L}\\p{N}])(" + keys.join("|") + ")(?![\\p{L}\\p{N}])", "gu");
+  const SKIP = "script,style,.katex,svg,select,option,textarea,button,a,.ab,.tip,canvas,input";
+  function wrapAbbr(root) {
+    const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: (n) => (!n.nodeValue.trim() || (n.parentElement && n.parentElement.closest(SKIP)) ? NodeFilter.FILTER_REJECT : NodeFilter.FILTER_ACCEPT)
+    });
+    const nodes = []; while (walker.nextNode()) nodes.push(walker.currentNode);
+    nodes.forEach((n) => {
+      const t = n.nodeValue; RX.lastIndex = 0;
+      if (!RX.test(t)) return;
+      RX.lastIndex = 0;
+      const frag = document.createDocumentFragment(); let last = 0, m;
+      while ((m = RX.exec(t))) {
+        if (m.index > last) frag.appendChild(document.createTextNode(t.slice(last, m.index)));
+        const g = GLOSS[m[1]], el = document.createElement("abbr");
+        el.className = "ab ab-" + g[0]; el.textContent = m[1]; el.tabIndex = 0;
+        el.dataset.tip = "<b>" + m[1] + "</b> · " + g[1] + (g[2] ? "<br><span>" + g[2] + "</span>" : "");
+        frag.appendChild(el); last = m.index + m[1].length;
+      }
+      if (last < t.length) frag.appendChild(document.createTextNode(t.slice(last)));
+      n.parentNode.replaceChild(frag, n);
+    });
+  }
+  const tip = $("#tip"); let pinned = null;
+  function showTip(el) {
+    tip.innerHTML = el.dataset.tip; tip.classList.add("show");
+    const r = el.getBoundingClientRect(), tw = tip.offsetWidth, th = tip.offsetHeight;
+    let x = Math.min(Math.max(8, r.left + r.width / 2 - tw / 2), innerWidth - tw - 8);
+    let y = r.bottom + 8; if (y + th > innerHeight - 8) y = r.top - th - 8;
+    tip.style.left = x + "px"; tip.style.top = Math.max(8, y) + "px";
+  }
+  const hideTip = () => { tip.classList.remove("show"); pinned = null; };
+  document.addEventListener("mouseover", (e) => { const el = e.target.closest("[data-tip]"); if (el && !pinned) showTip(el); });
+  document.addEventListener("mouseout", (e) => { const el = e.target.closest("[data-tip]"); if (el && !pinned) tip.classList.remove("show"); });
+  document.addEventListener("focusin", (e) => { const el = e.target.closest && e.target.closest("[data-tip]"); if (el) showTip(el); });
+  document.addEventListener("click", (e) => {
+    const el = e.target.closest("[data-tip]");
+    if (el) { e.stopPropagation(); if (pinned === el) hideTip(); else { pinned = el; showTip(el); } }
+    else if (pinned) hideTip();
+  });
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") hideTip(); });
+
   /* ===================== başlat ===================== */
   renderMathInElement(document.body, { delimiters: [{ left: "\\[", right: "\\]", display: true }, { left: "\\(", right: "\\)", display: false }], throwOnError: false });
+  wrapAbbr($("#deck"));
+  let wrapT = null;
+  new MutationObserver(() => { clearTimeout(wrapT); wrapT = setTimeout(() => wrapAbbr($("#deck")), 30); })
+    .observe($("#deck"), { childList: true, subtree: true });
   renderParamTable();
   buildSimControls();
   const h0 = parseInt(location.hash.slice(1), 10);

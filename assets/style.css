@@ -208,3 +208,27 @@ ol.refs li { margin-bottom: .5em; break-inside: avoid; }
 .test-row { padding: .3em 0; font-size: .76em; }
 .eq { padding: .4em .9em; }
 .eq-grid { gap: .7em 2vw; }
+
+/* kısaltmalar: renkli, tıklanabilir */
+abbr.ab { text-decoration: none; border-bottom: 1.5px dotted currentColor; cursor: help; font-weight: 700; padding: 0 .18em; border-radius: 4px; white-space: nowrap; }
+abbr.ab:focus-visible { outline: 2px solid var(--s1); outline-offset: 1px; }
+abbr.ab-m { color: #1c5cab; background: #e6f0fc; }
+abbr.ab-s { color: #0f7a55; background: #e2f6ee; }
+abbr.ab-l { color: #b0461c; background: #fdece4; }
+abbr.ab-o { color: #5a3c99; background: #efe9fb; }
+.tip { position: fixed; z-index: 50; max-width: min(420px, 90vw); background: #1d2233; color: #eef0f7; font-size: 15px; line-height: 1.4; padding: .7em .9em; border-radius: 10px; box-shadow: 0 10px 30px rgba(0,0,0,.25); opacity: 0; pointer-events: none; transition: opacity .12s; }
+.tip.show { opacity: 1; }
+.tip b { color: #ffd27a; }
+.tip span { color: #c9cde0; font-size: .92em; }
+
+/* denklem açıklama ve notasyon slaytları */
+.eq-grid.explain .eq p { font-size: .74em; color: var(--ink-2); margin: .3em 0 0; }
+.eq-grid.explain .eq .katex { font-size: 1em; }
+table.nota { font-size: .68em; }
+table.nota td, table.nota th { padding: .3em .5em; text-align: left; }
+table.nota td:first-child { white-space: nowrap; width: 5.5em; }
+table.nota td:last-child { color: var(--muted); white-space: nowrap; }
+.eq-grid.explain .eq p { font-size: .86em; }
+table.nota { font-size: .76em; }
+ol.refs { font-size: .8em; }
+.gen-card .yrs a, .note-box a, .card a { font-weight: 600; }

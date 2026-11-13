@@ -11,7 +11,8 @@ Canlı sunum: https://cyasar.github.io/icmo2026/
 - **ÇKKV:** AHP (özvektör, CR) ile ölçüt ağırlıkları, TOPSIS ile sıralama; ikisi de tarayıcıda düzenlenebilir
 - **Optimizasyon:** simpleks üzerinde stokastik arama ve yerel iyileştirme, Pareto sınırı, kuşağa göre kişiselleştirilmiş strateji
 - **Duyarlılık:** Monte Carlo sıra kabul edilebilirliği (SMAA mantığı), tornado analizi
-- **Geçerlilik ve güvenilirlik:** 17 testlik canlı paket (yapı, uç koşul, işaret, sayısal, ÇKKV, ampirik)
+- **Geçerlilik ve güvenilirlik:** 17 testlik canlı paket
+- **Notasyon sözlüğü ve denklem açıklamaları**; tüm kısaltmalar renkli ve tıklanınca açıklanır (yapı, uç koşul, işaret, sayısal, ÇKKV, ampirik)
 
 ## Kullanım
 | Tuş | İşlev |
@@ -20,7 +21,7 @@ Canlı sunum: https://cyasar.github.io/icmo2026/
 | ← / PageUp | önceki slayt |
 | N | konuşmacı notları |
 | F | tam ekran |
-| sayı + Enter | ilgili slayda atla (ör. `9` Enter) |
+| sayı + Enter | ilgili slayda atla (ör. `11` Enter) |
 
 Tüm kütüphaneler (`assets/vendor`) yereldir; sunum internetsiz çalışır. Yerelde en sağlıklı açılış için:
 ```

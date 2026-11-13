@@ -260,3 +260,54 @@ ol.refs { font-size: .8em; }
 .rq.small { font-size: .82em; margin-bottom: .5em; }
 .rq.small > b { font-size: 1.15em; }
 @media (max-width: 900px) { .steps.six { grid-template-columns: 1fr; } }
+
+/* etkileşimli nedensel döngü diyagramı */
+.cldcols { grid-template-columns: 7fr 3fr; gap: 1.6vw; }
+.cld-wrap { background: radial-gradient(circle at 30% 20%, #ffffff 0%, #f1f4fb 70%); border: 1px solid var(--line); border-radius: 16px; padding: .4em; box-shadow: var(--shadow); }
+svg.cld { width: 100%; height: auto; display: block; max-height: 70vh; }
+svg.cld text { font-family: inherit; }
+svg.cld .edge { fill: none; stroke: #8a90aa; stroke-width: 2.2; stroke-dasharray: 7 7; animation: cldflow 1.6s linear infinite; transition: opacity .3s, stroke .3s, stroke-width .3s; }
+svg.cld .edge.neg { stroke: #c0392b; }
+svg.cld .edge.self { stroke: #b06a6a; }
+@keyframes cldflow { to { stroke-dashoffset: -28; } }
+svg.cld .sign { font-size: 20px; font-weight: 800; fill: #0f8a5f; transition: opacity .3s; }
+svg.cld .sign.neg { fill: #c0392b; }
+svg.cld .node { cursor: pointer; transition: opacity .3s; }
+svg.cld .node .nbg { fill: #fff; }
+svg.cld .node .nframe { fill: none; stroke: #c9cee0; stroke-width: 2; transition: stroke-width .2s, stroke .3s; }
+svg.cld .node.stock .nframe { stroke: #2a78d6; stroke-width: 2.5; }
+svg.cld .node.in .nbg { fill: #eef1fa; }
+svg.cld .node.in .nframe { stroke: #2f3d8f; }
+svg.cld .node.out .nbg { fill: #fff4ee; }
+svg.cld .node.out .nframe { stroke: #eb6834; }
+svg.cld .nfill { transition: y .12s linear, height .12s linear; }
+svg.cld .nlab { font-size: 16px; font-weight: 700; fill: #1d2233; pointer-events: none; }
+svg.cld .nval { font-size: 13px; font-weight: 700; fill: #2f3d8f; pointer-events: none; font-variant-numeric: tabular-nums; }
+svg.cld .node:hover .nframe, svg.cld .node:focus .nframe { stroke-width: 4; }
+svg.cld .looplab circle { fill: #fff; stroke-width: 2; }
+svg.cld .looplab text { font-size: 14px; font-weight: 800; }
+svg.cld .looplab .looparc { fill: none; stroke-width: 2; }
+svg.cld .looplab.r circle, svg.cld .looplab.r .looparc { stroke: #2f3d8f; } svg.cld .looplab.r text { fill: #2f3d8f; }
+svg.cld .looplab.b circle, svg.cld .looplab.b .looparc { stroke: #c0392b; } svg.cld .looplab.b text { fill: #c0392b; }
+svg.cld .looplab { animation: cldspin 0s; }
+/* odak modu */
+svg.cld.focus .edge:not(.on), svg.cld.focus .sign:not(.on) { opacity: .12; }
+svg.cld.focus .node:not(.on) { opacity: .3; }
+svg.cld.focus .edge.on { stroke-width: 4.5; stroke: #1f2a6b; animation-duration: .7s; }
+svg.cld.focus .edge.on.neg { stroke: #c0392b; }
+svg.cld[data-mode="b"] .edge.on { stroke: #c0392b; }
+svg.cld[data-mode="y"] .edge.on { stroke: #0f8a5f; }
+svg.cld.focus .node.on .nframe { stroke-width: 4; filter: url(#glow); }
+svg.cld .pt { fill: #1f2a6b; }
+svg.cld .pt.b { fill: #c0392b; } svg.cld .pt.y { fill: #1baf7a; } svg.cld .pt.t { fill: #eb6834; }
+/* panel */
+.cld-panel .btn-row { margin-top: 0; }
+.lb { font: inherit; font-size: .7em; font-weight: 700; padding: .45em .8em; border-radius: 999px; border: 2px solid; background: #fff; cursor: pointer; transition: background .2s, color .2s; }
+.lb.r { border-color: #2f3d8f; color: #2f3d8f; } .lb.b { border-color: #c0392b; color: #c0392b; } .lb.y { border-color: #0f8a5f; color: #0f8a5f; } .lb.t { border-color: #eb6834; color: #b0461c; }
+.lb.act.r { background: #2f3d8f; color: #fff; } .lb.act.b { background: #c0392b; color: #fff; } .lb.act.y { background: #0f8a5f; color: #fff; } .lb.act.t { background: #eb6834; color: #fff; }
+.lb.tour { border-color: var(--navy); background: var(--navy); color: #fff; }
+.lb.ghost { border-color: var(--line); color: var(--ink-2); }
+#cldInfo { min-height: 9.5em; margin-bottom: .8em; }
+#cldInfo h3 { font-size: .95em; }
+@media (prefers-reduced-motion: reduce) { svg.cld .edge { animation: none; } }
+@media (max-width: 900px) { .cldcols { grid-template-columns: 1fr; } }

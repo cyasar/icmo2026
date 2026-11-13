@@ -31,7 +31,7 @@
   /* ------------------ arka plan işleri (Worker) ------------------ */
   let worker = null, jobId = 0; const pending = {};
   try {
-    worker = new Worker("assets/worker.js?v=20261114c");
+    worker = new Worker("assets/worker.js?v=20261114d");
     worker.onmessage = (e) => { const cb = pending[e.data.id]; if (cb) { delete pending[e.data.id]; cb(e.data); } };
     worker.onerror = () => { worker = null; Object.keys(pending).forEach((id) => { const j = pending[id]; delete pending[id]; j.fallback(); }); };
   } catch (e) { worker = null; }
@@ -347,6 +347,7 @@
   const slides = $$(".slide");
   let cur = 0, typed = "";
   const hooks = {
+    "Nedensel döngü diyagramı": () => { if (window.CLD) window.CLD.refresh(); },
     "Parametreler": () => { if (!$("#paramTable").innerHTML) renderParamTable(); },
     "Canlı simülasyon": updateSim,
     "Senaryo analizi": renderScenarios,
@@ -363,6 +364,7 @@
     slides.forEach((s, k) => { s.classList.toggle("active", k === i); s.classList.toggle("prev", k < i); });
     cur = i;
     const tp = document.getElementById("tip"); if (tp) tp.classList.remove("show");
+    if (window.CLD && slides[i].dataset.title !== "Nedensel döngü diyagramı") window.CLD.leave();
     $("#count").textContent = i + 1 + " / " + slides.length;
     $("#progress").style.width = ((i + 1) / slides.length) * 100 + "%";
     const n = $(".notes", slides[i]);
@@ -427,8 +429,8 @@
     "AS3": ["o", "Araştırma Sorusu 3", "Optimum karma ve kişiselleştirmenin değeri"],
     "AS4": ["o", "Araştırma Sorusu 4", "Sağlamlık ve geçerlilik"],
     "R1": ["o", "Pekiştiren döngü 1 (Reinforcing)", "Başarı sarmalı: motivasyon → yenilik → performans → motivasyon."],
-    "R2": ["o", "Pekiştiren döngü 2 (Reinforcing)", "İletişim kaldıracı: iletişim → motivasyon ve yenilik → performans."],
-    "B1": ["o", "Dengeleyen döngü 1 (Balancing)", "Doygunluk ve aşınma: stoklar sınırsız büyümez."],
+    "R2": ["o", "Pekiştiren döngü 2 (Reinforcing)", "Doğrudan başarı geri beslemesi: motivasyon → performans → motivasyon (κ)."],
+    "B1": ["o", "Dengeleyen döngüler (Balancing)", "Doygunluk ve aşınma: her stok (1 − x) ile sınırlanır ve aşınır."],
     "S1": ["o", "Senaryo 1: Geleneksel–Etkileşimci", "ℓ = 15/60/10/15, u = 0,30"],
     "S2": ["o", "Senaryo 2: Dönüşümcü", "ℓ = 60/15/15/10, u = 0,50"],
     "S3": ["o", "Senaryo 3: Katılımcı", "ℓ = 15/10/60/15, u = 0,50"],
@@ -488,6 +490,7 @@
   });
   document.addEventListener("keydown", (e) => { if (e.key === "Escape") hideTip(); });
 
+  window.KDYM_APP = { getP: () => S.p, getStrat: () => curStrat() };
   /* ===================== başlat ===================== */
   renderMathInElement(document.body, { delimiters: [{ left: "\\[", right: "\\]", display: true }, { left: "\\(", right: "\\)", display: false }], throwOnError: false });
   wrapAbbr($("#deck"));

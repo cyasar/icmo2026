@@ -10,7 +10,7 @@
 <meta name="author" content="Cumali YAŞAR">
 <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 <link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
-<link rel="stylesheet" href="assets/style.css?v=20261114c">
+<link rel="stylesheet" href="assets/style.css?v=20261114d">
 </head>
 <body>
 <div class="progress" id="progress"></div>
@@ -132,66 +132,27 @@
 </section>
 
 <!-- 6 CLD -->
-<section class="slide" data-title="Nedensel döngü diyagramı">
+<section class="slide cld-slide" data-title="Nedensel döngü diyagramı">
  <div class="inner">
-  <p class="kicker">Kavramsal model</p>
+  <p class="kicker">Kavramsal model · etkileşimli</p>
   <h2>Nedensel döngü diyagramı</h2>
-  <div class="cols w64">
-   <svg class="diagram" viewBox="0 0 1000 560" role="img" aria-label="Nedensel döngü diyagramı">
-    <defs>
-     <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5068"/></marker>
-     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker>
-    </defs>
-    <g stroke="#4a5068" stroke-width="2" fill="none" marker-end="url(#ar)">
-     <line x1="175" y1="265" x2="232" y2="175"/>
-     <line x1="368" y1="150" x2="448" y2="150"/>
-     <line x1="368" y1="430" x2="448" y2="430"/>
-     <line x1="520" y1="405" x2="520" y2="178"/>
-     <line x1="592" y1="140" x2="668" y2="125"/>
-     <line x1="592" y1="420" x2="680" y2="140"/>
-     <line x1="805" y1="140" x2="880" y2="262"/>
-     <line x1="592" y1="440" x2="668" y2="458"/>
-     <line x1="805" y1="455" x2="880" y2="318"/>
-     <line x1="592" y1="165" x2="845" y2="280"/>
-     <path d="M900 262 C 900 40, 600 30, 545 122"/>
-     <line x1="175" y1="310" x2="448" y2="415"/>
-     <line x1="300" y1="520" x2="300" y2="458"/>
-    </g>
-    <path d="M120 318 C 160 560, 560 560, 676 478" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 5" fill="none" marker-end="url(#arr)"/>
-    <g font-size="20" font-weight="700" fill="#0f8a5f">
-     <text x="195" y="215">+</text><text x="400" y="138">+</text><text x="400" y="420">+</text><text x="530" y="300">+</text>
-     <text x="625" y="118">+</text><text x="645" y="285">+</text><text x="850" y="195">+</text><text x="625" y="438">+</text>
-     <text x="850" y="400">+</text><text x="740" y="215">+</text><text x="760" y="60">+</text><text x="300" y="350">+</text><text x="310" y="495">+</text>
-    </g>
-    <text x="420" y="545" font-size="20" font-weight="700" fill="#c0392b">− katılım ⇒ karar hızı</text>
-    <g font-size="17" text-anchor="middle" font-weight="600" fill="#1d2233">
-     <rect x="30" y="262" width="150" height="56" rx="12" fill="#eef1fa" stroke="#2f3d8f"/><text x="105" y="286">Liderlik</text><text x="105" y="306">karması ℓ</text>
-     <rect x="232" y="124" width="136" height="52" rx="12" fill="#fff" stroke="#c9cee0"/><text x="300" y="156">Uyum F</text>
-     <rect x="232" y="404" width="136" height="52" rx="12" fill="#fff" stroke="#c9cee0"/><text x="300" y="427">Kanal</text><text x="300" y="446">uyumu Q</text>
-     <rect x="448" y="122" width="144" height="56" rx="6" fill="#e9f1fc" stroke="#2a78d6" stroke-width="2"/><text x="520" y="156">Motivasyon M</text>
-     <rect x="448" y="404" width="144" height="56" rx="6" fill="#e9f1fc" stroke="#2a78d6" stroke-width="2"/><text x="520" y="438">İletişim I</text>
-     <rect x="668" y="98" width="140" height="56" rx="6" fill="#e9f1fc" stroke="#2a78d6" stroke-width="2"/><text x="738" y="132">Yenilik K</text>
-     <rect x="668" y="432" width="140" height="52" rx="12" fill="#fff" stroke="#c9cee0"/><text x="738" y="464">Karar hızı V</text>
-     <rect x="845" y="262" width="140" height="56" rx="12" fill="#fff4ee" stroke="#eb6834" stroke-width="2"/><text x="915" y="296">Performans P</text>
-     <text x="300" y="540" font-size="15" font-weight="500" fill="#4a5068">u (kanal payı), δ (dijital yakınlık)</text>
-    </g>
-    <g font-size="18" font-weight="800" text-anchor="middle">
-     <circle cx="745" cy="215" r="0" />
-     <text x="690" y="240" fill="#2f3d8f"><title>R1: Pekiştiren (reinforcing) döngü: başarı sarmalı</title>R1</text><text x="690" y="258" font-size="12" fill="#4a5068" font-weight="600">başarı sarmalı</text>
-     <text x="600" y="300" fill="#2f3d8f"><title>R2: Pekiştiren döngü: iletişim kaldıracı</title>R2</text>
-     <text x="470" y="100" fill="#c0392b"><title>B1: Dengeleyen (balancing) döngü: doygunluk ve aşınma</title>B1</text><text x="470" y="85" font-size="12" fill="#4a5068" font-weight="600">doygunluk/aşınma</text>
-    </g>
-    <text x="20" y="30" font-size="14" fill="#7a8099">Mavi kenarlı kutu = stok (birikim) · düz kutu = yardımcı değişken</text>
-   </svg>
-   <div>
-    <div class="card flat" style="margin-bottom:.8em"><h3><span class="pill">R1</span> Başarı sarmalı</h3><p class="small">Motivasyon → yenilik → performans → motivasyon. Kendini güçlendiren döngü: iyi başlangıç büyür, kötü başlangıç da.</p></div>
-    <div class="card flat" style="margin-bottom:.8em"><h3><span class="pill">R2</span> İletişim kaldıracı</h3><p class="small">Kanal uyumu iletişimi, iletişim de motivasyonu, yeniliği ve karar hızını artırır.</p></div>
-    <div class="card flat" style="margin-bottom:.8em"><h3><span class="pill bad">B1</span> Doygunluk ve aşınma</h3><p class="small">Stoklar (1−x) ile sınırlanır ve sabit oranla aşınır. Sınırsız büyüme olmaz.</p></div>
-    <div class="card flat"><h3><span class="pill warn">Ödünleşim</span> Katılım ve hız</h3><p class="small">Katılımcı liderlik iletişimi ve yeniliği güçlendirir ama karar hızını düşürür. Optimum bu yüzden iç noktadadır.</p></div>
+  <div class="cols cldcols">
+   <div class="cld-wrap" id="cldHost"></div>
+   <div class="cld-panel">
+    <div class="btn-row" id="loopBtns"></div>
+    <div class="card" id="cldInfo">
+     <h3>Diyagramı nasıl okumalı?</h3>
+     <p class="small">Oklar nedenselliğin yönünü, <b style="color:#0f8a5f">+</b> aynı yönde, <b style="color:#c0392b">−</b> ters yönde etkiyi gösterir. Mavi kenarlı kutular <b>stoktur</b> (birikir); içleri zamanla dolar. Bir döngü seçin ya da bir düğümün üzerine gelin.</p>
+    </div>
+    <div class="card cld-time">
+     <div class="ctrl"><label>Zaman <output><span id="cldT">0</span>. ay</output></label><input type="range" id="cldTime" min="0" max="72" step="1" value="0"></div>
+     <div class="btn-row" style="margin:.3em 0 0"><button class="btn" id="cldPlay">▶ Zamanı oynat</button></div>
+     <p class="tiny" style="margin:.5em 0 0">Stokların doluluğu ve değerler, <b>Canlı simülasyon</b> slaytında seçili stratejiye göre modelden hesaplanır (varsayılan: S5 Hibrit).</p>
+    </div>
    </div>
   </div>
  </div>
- <aside class="notes">Döngüleri tek tek göster. R1’in “Nobody ever gets credit…” (Repenning &amp; Sterman, 2001) mantığına benzediğini söyleyebilirsin: iyileşme birikimlidir. Kırmızı kesikli ok modelin temel ödünleşimidir.</aside>
+ <aside class="notes">Önce “Zamanı oynat” ile stokların dolduğunu göster: motivasyon ve iletişim hızlı, yenilik yavaş dolar. Sonra “Döngü turu”na bas: R1 başarı sarmalı, R2 doğrudan geri besleme, B1 doygunluk, iletişim kaldıracı ve katılım–hız ödünleşimi sırayla vurgulanır. Not: iletişim kaldıracı bir döngü değil, ileri besleme yoludur.</aside>
 </section>
 
 <!-- 7 DENKLEMLER -->
@@ -831,7 +792,8 @@ E&=1-0{,}0153/0{,}631=\mathbf{0{,}976}
 <script src="assets/vendor/katex/katex.min.js"></script>
 <script src="assets/vendor/katex/auto-render.min.js"></script>
 <script src="assets/vendor/chart.umd.min.js"></script>
-<script src="assets/model.js?v=20261114c"></script>
-<script src="assets/app.js?v=20261114c"></script>
+<script src="assets/model.js?v=20261114d"></script>
+<script src="assets/app.js?v=20261114d"></script>
+<script src="assets/cld.js?v=20261114d"></script>
 </body>
 </html>

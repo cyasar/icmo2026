@@ -1,0 +1,478 @@
+<!doctype html>
+<html lang="tr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' file:; style-src 'self' file: 'unsafe-inline'; img-src 'self' file: data:; font-src 'self' file:; worker-src 'self' file:; connect-src 'none'; object-src 'none'; base-uri 'self'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<title>Kuşak-Duyarlı Yönetim Modeli</title>
+<meta name="description" content="Örgüt yönetiminde matematiksel modelleme temelli yönetim stratejileri: çok kuşaklı bir yaklaşım — etkileşimli bildiri sunumu (IV. Örgütlerin Yönetimi Uluslararası Kongresi).">
+<meta name="author" content="Cumali YAŞAR">
+<link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="assets/vendor/katex/katex.min.css">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<main class="deck" id="deck">
+
+<!-- 1 KAPAK -->
+<section class="slide cover" data-title="Kapak">
+ <div class="inner">
+  <img class="logo" src="assets/logo.png" alt="Örgütlerin Yönetimi Kongresi logosu">
+  <p class="kicker">IV. Örgütlerin Yönetimi Uluslararası Kongresi · Bildiri</p>
+  <h1>Örgüt Yönetiminde Matematiksel Modelleme Temelli Yönetim Stratejileri</h1>
+  <p class="sub">Çok Kuşaklı Bir Yaklaşım: <strong>Kuşak-Duyarlı Yönetim Modeli (KDYM)</strong></p>
+  <div class="gen-band"><span style="background:var(--s1)"></span><span style="background:var(--s2)"></span><span style="background:var(--s3)"></span><span style="background:var(--s4)"></span></div>
+  <p class="author">Cumali YAŞAR</p>
+  <p class="small">Çanakkale Onsekiz Mart Üniversitesi · Kasım 2026</p>
+  <span class="hint">→ / Boşluk: ileri · N: konuşmacı notları · F: tam ekran</span>
+ </div>
+ <aside class="notes">Açılış: “Bugün size bir sunum değil, çalışan bir model getirdim. Sunum boyunca göreceğiniz her grafik tarayıcıda canlı hesaplanıyor; QR kodla siz de telefonunuzdan deneyebilirsiniz.” (QR son slaytta.)</aside>
+</section>
+
+<!-- 2 SORUN -->
+<section class="slide" data-title="Sorun">
+ <div class="inner">
+  <p class="kicker">Problem</p>
+  <h2>Aynı masada dört kuşak var, kararlar ise hâlâ sezgiyle veriliyor</h2>
+  <div class="cols">
+   <div>
+    <p class="lead">Dijital dönüşüm hızlandıkça, liderlik ve iletişim kararlarının <strong>kuşaklara göre farklı sonuç doğurduğu</strong> varsayımı yönetim pratiğinde yaygınlaştı. Ancak bu varsayım çoğunlukla nicel bir çerçeve olmadan uygulanıyor.</p>
+    <ul class="clean">
+     <li><strong>Sezgisel yönetim:</strong> “Z kuşağı böyledir” genellemesi test edilmeden politikaya dönüşüyor.</li>
+     <li><strong>Ödünleşimler görünmüyor:</strong> katılımı artırmak iletişimi güçlendirirken karar hızını düşürebilir.</li>
+     <li><strong>Gecikmeli etkiler:</strong> motivasyon ve yenilik birikimli (stok) değişkenlerdir; bugünkü kararın etkisi aylar sonra görülür.</li>
+    </ul>
+   </div>
+   <div class="card">
+    <h3>Kanıta dayalı yönetim</h3>
+    <p class="small">Rousseau (2006), yönetsel kararların sistematik kanıtla desteklenmesini önerir. Bu çalışma, bu kanıtın üretiminde <strong>matematiksel modeli</strong> bir “karar laboratuvarı” olarak konumlandırır.</p>
+    <div class="note-box info" style="margin-top:.8em">Ana soru: <strong>Hangi liderlik karması, hangi işgücü bileşiminde, hangi zaman ufkunda, hangi ölçütler açısından en iyidir?</strong></div>
+   </div>
+  </div>
+ </div>
+ <aside class="notes">Burada sorunu üç kelimeyle çerçevele: sezgi, ödünleşim, gecikme. Sistem dinamiğinin tam da bu üç sorun için geliştirildiğini (Forrester, Sterman) bir sonraki slaytlara köprü olarak söyle.</aside>
+</section>
+
+<!-- 3 AMAÇ -->
+<section class="slide" data-title="Amaç ve araştırma soruları">
+ <div class="inner">
+  <p class="kicker">Amaç</p>
+  <h2>Araştırma soruları ve katkı</h2>
+  <div class="cols w64">
+   <div>
+    <div class="rq"><b>AS1</b><div>Y, Z, Alfa ve C kuşaklarının liderlik tarzlarına ve iletişim kanallarına duyarlılıkları, örgütsel performansı <strong>dinamik olarak</strong> nasıl etkiler?</div></div>
+    <div class="rq"><b>AS2</b><div>Farklı yönetim senaryoları, çok ölçütlü (performans, motivasyon, iletişim, hız, yenilik, kuşak dengesi) değerlendirmede nasıl sıralanır?</div></div>
+    <div class="rq"><b>AS3</b><div>Optimum liderlik karması nedir ve <strong>kuşağa göre kişiselleştirme</strong> ne kadar ek değer üretir?</div></div>
+    <div class="rq"><b>AS4</b><div>Sonuçlar parametre belirsizliğine karşı ne kadar sağlamdır ve model hangi geçerlilik testlerini geçer?</div></div>
+   </div>
+   <div class="card">
+    <h3>Katkı</h3>
+    <ul class="clean small">
+     <li>Sistem dinamiği + optimizasyon + ÇKKV’yi <strong>tek boru hattında</strong> birleştiren bütüncül çerçeve</li>
+     <li>Kuşakları kalıp yargı değil, <strong>ölçülebilir parametre kümesi</strong> olarak modelleme</li>
+     <li>Açık kaynak, tarayıcıda çalışan <strong>karar destek aracı</strong></li>
+     <li>Yerleşik geçerlilik ve güvenilirlik test paketi</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+ <aside class="notes">AS4’ü özellikle vurgula: “Modeli sadece kurmadık, kendini sınayan bir test paketiyle birlikte sunuyoruz.”</aside>
+</section>
+
+<!-- 4 KUŞAKLAR -->
+<section class="slide" data-title="Kuşaklar">
+ <div class="inner">
+  <p class="kicker">Kavramsal çerçeve</p>
+  <h2>Dört kuşak, dört parametre profili</h2>
+  <div class="cols c4">
+   <div class="card gen-card" style="--c:var(--s1)"><div class="big">Y</div><div class="yrs">≈1981–1996 doğumlu (Dimock, 2019)</div><ul><li>İşgücünün omurgası</li><li>Hem yüz yüze hem dijital</li><li>Anlam ve gelişim arayışı</li></ul></div>
+   <div class="card gen-card" style="--c:var(--s2)"><div class="big">Z</div><div class="yrs">≈1997–2012 doğumlu (Dimock, 2019)</div><ul><li>Dijital yerli</li><li>Sık geri bildirim, esneklik</li><li>Hiyerarşiye düşük tolerans</li></ul></div>
+   <div class="card gen-card" style="--c:var(--s3)"><div class="big">Alfa</div><div class="yrs">≈2010 sonrası (McCrindle &amp; Wolfinger, 2009)</div><ul><li>Henüz işgücünde değil</li><li>Modelde <strong>2030+ projeksiyonu</strong></li><li>Yapay zekâ ile büyüyen kuşak</li></ul></div>
+   <div class="card gen-card" style="--c:var(--s4)"><div class="big">C</div><div class="yrs">Yaşa değil davranışa dayalı</div><ul><li>“Connected” (bağlantılı) segment</li><li>Kuşakları kesen psikografik grup</li><li>Ağ, iş birliği, içerik üretimi</li></ul></div>
+  </div>
+  <div class="note-box" style="margin-top:1.2em"><strong>Bilimsel ihtiyat:</strong> Meta-analitik bulgular kuşaklar arası iş tutumu farklarının çoğunlukla küçük olduğunu gösterir (Costanza vd., 2012). Liderlik ile kuşak ilişkisine yönelik eleştirel bir değerlendirme için bkz. Rudolph vd. (2018). Bu nedenle KDYM’de kuşak bir <strong>kader değil, ampirik olarak güncellenebilir parametre vektörüdür</strong> (β<sub>g</sub>, δ<sub>g</sub>, w<sub>g</sub>).</div>
+ </div>
+ <aside class="notes">Bu ihtiyat notu hakemlerin ilk itirazını baştan karşılar. “Kuşak etiketi yerine parametre” fikrini çalışmanın metodolojik sigortası olarak sun. C kuşağının bir doğum aralığı değil, davranışsal segment olduğunu belirt.</aside>
+</section>
+
+<!-- 5 YÖNTEM -->
+<section class="slide" data-title="Yöntem çerçevesi">
+ <div class="inner">
+  <p class="kicker">Yöntem</p>
+  <h2>Bütüncül modelleme boru hattı</h2>
+  <div class="flow">
+   <div class="fstep"><span>1</span><b>Kavramsal model</b><small>Nedensel döngüler, değişkenler</small></div>
+   <div class="fstep"><span>2</span><b>Sistem dinamiği</b><small>9 durumlu ADD sistemi, RK4</small></div>
+   <div class="fstep"><span>3</span><b>Senaryo simülasyonu</b><small>5 liderlik stratejisi, 36 ay</small></div>
+   <div class="fstep"><span>4</span><b>AHP</b><small>Ölçüt ağırlıkları, CR</small></div>
+   <div class="fstep"><span>5</span><b>TOPSIS</b><small>Senaryo sıralaması</small></div>
+   <div class="fstep"><span>6</span><b>Optimizasyon</b><small>Tek tip ve kişiselleştirilmiş</small></div>
+   <div class="fstep"><span>7</span><b>Duyarlılık</b><small>Monte Carlo, tornado</small></div>
+   <div class="fstep"><span>8</span><b>Geçerlilik</b><small>17 test, canlı</small></div>
+  </div>
+  <div class="cols c3" style="margin-top:1.4em">
+   <div class="card flat"><h3>Sistem dinamiği</h3><p class="small">Stok-akış yapısı, geri besleme ve gecikmeleri açıkça temsil eder (Forrester, 1961; Sterman, 2000).</p></div>
+   <div class="card flat"><h3>ÇKKV</h3><p class="small">AHP (Saaty, 1980) ile ölçüt ağırlıkları, TOPSIS (Hwang &amp; Yoon, 1981) ile ideal çözüme yakınlık sıralaması.</p></div>
+   <div class="card flat"><h3>Optimizasyon ve belirsizlik</h3><p class="small">Simpleks üzerinde stokastik arama ve yerel iyileştirme; Monte Carlo ile sıra kabul edilebilirliği (Saltelli vd., 2008).</p></div>
+  </div>
+ </div>
+ <aside class="notes">Boru hattını soldan sağa anlat. Her kutunun ilerleyen slaytlarda canlı bir karşılığı olduğunu söyle. Yöntemlerin kendisi yerleşik; yenilik, bunların kuşak parametreleriyle tek çerçevede birleşmesi.</aside>
+</section>
+
+<!-- 6 CLD -->
+<section class="slide" data-title="Nedensel döngü diyagramı">
+ <div class="inner">
+  <p class="kicker">Kavramsal model</p>
+  <h2>Nedensel döngü diyagramı</h2>
+  <div class="cols w64">
+   <svg class="diagram" viewBox="0 0 1000 560" role="img" aria-label="Nedensel döngü diyagramı">
+    <defs>
+     <marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#4a5068"/></marker>
+     <marker id="arr" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="#c0392b"/></marker>
+    </defs>
+    <g stroke="#4a5068" stroke-width="2" fill="none" marker-end="url(#ar)">
+     <line x1="175" y1="265" x2="232" y2="175"/>
+     <line x1="368" y1="150" x2="448" y2="150"/>
+     <line x1="368" y1="430" x2="448" y2="430"/>
+     <line x1="520" y1="405" x2="520" y2="178"/>
+     <line x1="592" y1="140" x2="668" y2="125"/>
+     <line x1="592" y1="420" x2="680" y2="140"/>
+     <line x1="805" y1="140" x2="880" y2="262"/>
+     <line x1="592" y1="440" x2="668" y2="458"/>
+     <line x1="805" y1="455" x2="880" y2="318"/>
+     <line x1="592" y1="165" x2="845" y2="280"/>
+     <path d="M900 262 C 900 40, 600 30, 545 122"/>
+     <line x1="175" y1="310" x2="448" y2="415"/>
+     <line x1="300" y1="520" x2="300" y2="458"/>
+    </g>
+    <path d="M120 318 C 160 560, 560 560, 676 478" stroke="#c0392b" stroke-width="2" stroke-dasharray="7 5" fill="none" marker-end="url(#arr)"/>
+    <g font-size="20" font-weight="700" fill="#0f8a5f">
+     <text x="195" y="215">+</text><text x="400" y="138">+</text><text x="400" y="420">+</text><text x="530" y="300">+</text>
+     <text x="625" y="118">+</text><text x="645" y="285">+</text><text x="850" y="195">+</text><text x="625" y="438">+</text>
+     <text x="850" y="400">+</text><text x="740" y="215">+</text><text x="760" y="60">+</text><text x="300" y="350">+</text><text x="310" y="495">+</text>
+    </g>
+    <text x="420" y="545" font-size="20" font-weight="700" fill="#c0392b">− katılım ⇒ karar hızı</text>
+    <g font-size="17" text-anchor="middle" font-weight="600" fill="#1d2233">
+     <rect x="30" y="262" width="150" height="56" rx="12" fill="#eef1fa" stroke="#2f3d8f"/><text x="105" y="286">Liderlik</text><text x="105" y="306">karması ℓ</text>
+     <rect x="232" y="124" width="136" height="52" rx="12" fill="#fff" stroke="#c9cee0"/><text x="300" y="156">Uyum F</text>
+     <rect x="232" y="404" width="136" height="52" rx="12" fill="#fff" stroke="#c9cee0"/><text x="300" y="427">Kanal</text><text x="300" y="446">uyumu Q</text>
+     <rect x="448" y="122" width="144" height="56" rx="6" fill="#e9f1fc" stroke="#2a78d6" stroke-width="2"/><text x="520" y="156">Motivasyon M</text>
+     <rect x="448" y="404" width="144" height="56" rx="6" fill="#e9f1fc" stroke="#2a78d6" stroke-width="2"/><text x="520" y="438">İletişim I</text>
+     <rect x="668" y="98" width="140" height="56" rx="6" fill="#e9f1fc" stroke="#2a78d6" stroke-width="2"/><text x="738" y="132">Yenilik K</text>
+     <rect x="668" y="432" width="140" height="52" rx="12" fill="#fff" stroke="#c9cee0"/><text x="738" y="464">Karar hızı V</text>
+     <rect x="845" y="262" width="140" height="56" rx="12" fill="#fff4ee" stroke="#eb6834" stroke-width="2"/><text x="915" y="296">Performans P</text>
+     <text x="300" y="540" font-size="15" font-weight="500" fill="#4a5068">u (kanal payı), δ (dijital yakınlık)</text>
+    </g>
+    <g font-size="18" font-weight="800" text-anchor="middle">
+     <circle cx="745" cy="215" r="0" />
+     <text x="690" y="240" fill="#2f3d8f">R1</text><text x="690" y="258" font-size="12" fill="#4a5068" font-weight="600">başarı sarmalı</text>
+     <text x="600" y="300" fill="#2f3d8f">R2</text>
+     <text x="470" y="100" fill="#c0392b">B1</text><text x="470" y="85" font-size="12" fill="#4a5068" font-weight="600">doygunluk/aşınma</text>
+    </g>
+    <text x="20" y="30" font-size="14" fill="#7a8099">Mavi kenarlı kutu = stok (birikim) · düz kutu = yardımcı değişken</text>
+   </svg>
+   <div>
+    <div class="card flat" style="margin-bottom:.8em"><h3><span class="pill">R1</span> Başarı sarmalı</h3><p class="small">Motivasyon → yenilik → performans → motivasyon. Kendini güçlendiren döngü: iyi başlangıç büyür, kötü başlangıç da.</p></div>
+    <div class="card flat" style="margin-bottom:.8em"><h3><span class="pill">R2</span> İletişim kaldıracı</h3><p class="small">Kanal uyumu iletişimi, iletişim de motivasyonu, yeniliği ve karar hızını artırır.</p></div>
+    <div class="card flat" style="margin-bottom:.8em"><h3><span class="pill bad">B1</span> Doygunluk ve aşınma</h3><p class="small">Stoklar (1−x) ile sınırlanır ve sabit oranla aşınır. Sınırsız büyüme olmaz.</p></div>
+    <div class="card flat"><h3><span class="pill warn">Ödünleşim</span> Katılım ve hız</h3><p class="small">Katılımcı liderlik iletişimi ve yeniliği güçlendirir ama karar hızını düşürür. Optimum bu yüzden iç noktadadır.</p></div>
+   </div>
+  </div>
+ </div>
+ <aside class="notes">Döngüleri tek tek göster. R1’in “Nobody ever gets credit…” (Repenning &amp; Sterman, 2001) mantığına benzediğini söyleyebilirsin: iyileşme birikimlidir. Kırmızı kesikli ok modelin temel ödünleşimidir.</aside>
+</section>
+
+<!-- 7 DENKLEMLER -->
+<section class="slide" data-title="Matematiksel model">
+ <div class="inner">
+  <p class="kicker">Matematiksel model</p>
+  <h2>KDYM denklem sistemi</h2>
+  <div class="eq-grid">
+   <div class="eq"><div class="lbl">(1) Liderlik–kuşak uyumu</div>\[F_g=\frac{1}{4^{\,1-\rho}}\sum_{k=1}^{4}\beta_{gk}\,\ell_{gk}^{\,\rho},\quad \boldsymbol\ell_g\in\Delta^3\]</div>
+   <div class="eq"><div class="lbl">(2) Motivasyon (stok)</div>\[\dot M_g=a_M\big[(1-\eta-\kappa)F_g+\eta I_g+\kappa P\big](1-M_g)-b_M M_g\]</div>
+   <div class="eq"><div class="lbl">(3) İletişim etkinliği (stok)</div>\[\dot I_g=a_I\,Q_g\,(1+\psi\bar\ell_{\text{KAT}})(1-I_g)-b_I I_g,\quad Q_g=1-|u-\delta_g|\]</div>
+   <div class="eq"><div class="lbl">(4) Karar alma hızı</div>\[V=\big(\mathbf s^{\top}\bar{\boldsymbol\ell}\big)\,\big(0.5+0.5\,\bar I\big),\qquad \bar{\boldsymbol\ell}=\sum_g w_g\boldsymbol\ell_g\]</div>
+   <div class="eq"><div class="lbl">(5) Yenilik kapasitesi (stok)</div>\[\dot K=a_K\Big(\sum_g w_g M_g I_g\Big)\big(1+\chi(\bar\ell_{\text{DÖN}}+\bar\ell_{\text{KAT}})\big)(1-K)-b_K K\]</div>
+   <div class="eq"><div class="lbl">(6) Örgütsel performans</div>\[P=\bar M^{\theta_1}\,\bar I^{\theta_2}\,K^{\theta_3}\,V^{\theta_4},\qquad \textstyle\sum_i\theta_i=1\]</div>
+   <div class="eq wide"><div class="lbl">(7) Optimizasyon problemi ve kuşak dengesi</div>\[\max_{\boldsymbol\ell\in\Delta^3,\;u\in[0,1]}\; J=\underbrace{\frac1T\int_0^T P(t)\,dt}_{\bar P}-\gamma\,(1-E),\qquad E=1-\frac{\sigma_M}{\bar M},\quad \sigma_M^2=\sum_g w_g\,(M_g-\bar M)^2\]</div>
+  </div>
+  <p class="tiny" style="margin-top:.6em">g ∈ {Y, Z, Alfa, C}; k ∈ {Dönüşümcü, Etkileşimci, Katılımcı, Dijital}. ρ&lt;1 azalan getiri, yani liderlik repertuvarı genişliğinin ödüllendirilmesidir (davranışsal karmaşıklık; Denison vd., 1995). Tüm stoklar [0,1] aralığında boyutsuzdur. Çözüm RK4 ile Δt = 0,5 ay, T = 36 ay.</p>
+ </div>
+ <aside class="notes">Denklemleri okuma, mantığını anlat: (1) uyum, (2)(3)(5) lojistik tipte stoklar (büyüme + doygunluk + aşınma), (6) Cobb–Douglas performans fonksiyonu, (7) performans ile kuşak adaleti arasındaki ödünleşim. γ yöneticinin adalete verdiği önemdir.</aside>
+</section>
+
+<!-- 8 PARAMETRELER -->
+<section class="slide" data-title="Parametreler">
+ <div class="inner">
+  <p class="kicker">Parametrizasyon</p>
+  <h2>Kuşak duyarlılık parametreleri <span class="pill warn">düzenlenebilir</span></h2>
+  <div class="cols w64">
+   <div class="card">
+    <table class="data" id="paramTable"></table>
+    <div class="btn-row" style="margin-top:.8em"><button class="btn ghost" id="resetParams">Varsayılana dön</button></div>
+   </div>
+   <div>
+    <div class="note-box"><strong>Şeffaflık beyanı.</strong> Bu değerler <strong>ampirik tahmin değildir</strong>. Yönleri kavramsal literatürle uyumlu (örn. genç kuşaklarda daha yüksek dijital kanal tercihi), büyüklükleri <strong>gösterim amaçlıdır</strong>. Makale aşamasında anket verisiyle kalibre edilecektir.</div>
+    <div class="card flat" style="margin-top:1em">
+     <h3>Neden düzenlenebilir?</h3>
+     <p class="small">Herhangi bir hücreyi değiştirin; sonraki tüm simülasyon, ÇKKV, optimizasyon ve test sonuçları <strong>anında yeniden hesaplanır</strong>. Böylece “Ya Z kuşağı etkileşimci liderliğe daha duyarlıysa?” sorusu tartışma değil, deney olur.</p>
+    </div>
+   </div>
+  </div>
+ </div>
+ <aside class="notes">Salondan bir itiraz gelirse burada değeri birlikte değiştirip sonucu göster. Şeffaflık beyanını mutlaka sesli oku: bu, sonuçların “varsayımsal parametre altında model içi” olduğunu netleştirir.</aside>
+</section>
+
+<!-- 9 CANLI SİMÜLASYON -->
+<section class="slide sim" data-title="Canlı simülasyon">
+ <div class="inner">
+  <p class="kicker">Canlı simülasyon</p>
+  <h2>Liderlik karmasını siz belirleyin</h2>
+  <div class="cols w37">
+   <div class="card">
+    <div class="ctrl-group"><h4>Liderlik karması ℓ (otomatik normalize)</h4><div id="Lctrls"></div></div>
+    <div class="ctrl-group"><h4>İletişim</h4><div class="ctrl"><label>Dijital kanal payı u <output id="uOut"></output></label><input type="range" id="uIn" min="0" max="1" step="0.01"></div></div>
+    <div class="ctrl-group"><h4>İşgücü bileşimi w</h4><div id="Wctrls"></div></div>
+   </div>
+   <div>
+    <div class="btn-row" id="presetRow" style="margin-top:0"></div>
+    <div class="kpis">
+     <div class="kpi"><div class="k">Ort. performans P̄</div><div class="v" id="kP">–</div></div>
+     <div class="kpi"><div class="k">Kuşak dengesi E</div><div class="v" id="kE">–</div></div>
+     <div class="kpi"><div class="k">Karar hızı V(T)</div><div class="v" id="kV">–</div></div>
+     <div class="kpi"><div class="k">Yenilik K(T)</div><div class="v" id="kK">–</div></div>
+    </div>
+    <div class="cols">
+     <div class="chart-box"><h4>Kuşaklara göre motivasyon M<sub>g</sub>(t)</h4><div class="cv tall"><canvas id="chM"></canvas></div></div>
+     <div class="chart-box"><h4>Örgüt düzeyi göstergeler</h4><div class="cv tall"><canvas id="chOrg"></canvas></div></div>
+    </div>
+   </div>
+  </div>
+ </div>
+ <aside class="notes">Önce “Geleneksel–Etkileşimci” düğmesine bas: Alfa ve Z eğrileri aşağıda kalır, kuşak açığı büyür. Sonra “Hibrit” düğmesine bas: eğriler birbirine yaklaşır. Etkileşimci payı artınca karar hızının yükseldiğini ama yeniliğin düştüğünü göster.</aside>
+</section>
+
+<!-- 10 SENARYOLAR -->
+<section class="slide" data-title="Senaryo analizi">
+ <div class="inner">
+  <p class="kicker">Senaryo simülasyonu</p>
+  <h2>Beş yönetim stratejisi, 36 aylık ufuk</h2>
+  <div class="cols w46">
+   <div class="card"><table class="data" id="scenTable"></table><p class="tiny" style="margin-top:.6em">Liderlik karması: DÖN/ETK/KAT/DİJ payları; u: dijital kanal payı. Değerler T = 36 ayda, P̄ ise ufuk ortalamasıdır.</p></div>
+   <div class="chart-box"><h4>Performans yörüngeleri P(t)</h4><div class="cv tall"><canvas id="chScen"></canvas></div></div>
+  </div>
+ </div>
+ <aside class="notes">Tek bir ölçütte kazanan yok: Etkileşimci hızda önde, Katılımcı iletişim ve yenilikte önde, Dönüşümcü ve Hibrit performansta önde. Bu yüzden çok ölçütlü karar vermeye (AHP–TOPSIS) ihtiyaç var.</aside>
+</section>
+
+<!-- 11 AHP -->
+<section class="slide" data-title="AHP">
+ <div class="inner">
+  <p class="kicker">ÇKKV · Adım 1</p>
+  <h2>AHP ile ölçüt ağırlıkları <span class="pill warn">düzenlenebilir</span></h2>
+  <div class="cols w64">
+   <div class="card"><table class="data ahp-table" id="ahpTable"></table><p class="tiny" style="margin-top:.6em">Saaty ölçeği: 1 eşit, 3 biraz, 5 güçlü, 7 çok güçlü, 9 mutlak üstünlük. Satır ölçütü sütun ölçütüne göre. Alt üçgen otomatik (1/a<sub>ij</sub>).</p></div>
+   <div>
+    <div class="chart-box"><h4>Öncelik vektörü w (özvektör yöntemi)</h4><div class="cv"><canvas id="chW"></canvas></div></div>
+    <div class="card flat" style="margin-top:.8em" id="crBox"></div>
+   </div>
+  </div>
+ </div>
+ <aside class="notes">“Bu ağırlıklar benim yargım; bir kamu kurumu yöneticisi kuşak dengesine, bir girişim yöneticisi karar hızına daha fazla ağırlık verebilir.” Bir hücreyi değiştirip CR’ın nasıl tepki verdiğini göster. CR &lt; 0,10 kabul eşiğidir (Saaty, 1980).</aside>
+</section>
+
+<!-- 12 TOPSIS -->
+<section class="slide" data-title="TOPSIS">
+ <div class="inner">
+  <p class="kicker">ÇKKV · Adım 2</p>
+  <h2>TOPSIS ile senaryo sıralaması</h2>
+  <div class="cols w46">
+   <div class="card">
+    <div class="eq" style="margin-bottom:.8em">\[C_i^{*}=\frac{d_i^{-}}{d_i^{+}+d_i^{-}},\qquad d_i^{\pm}=\Big\lVert \mathbf v_i-\mathbf v^{\pm}\Big\rVert_2\]</div>
+    <table class="data" id="topsisTable"></table>
+   </div>
+   <div class="chart-box"><h4>İdeal çözüme göreli yakınlık C*</h4><div class="cv tall"><canvas id="chTopsis"></canvas></div></div>
+  </div>
+ </div>
+ <aside class="notes">Sıralamanın AHP ağırlıklarına bağlı olduğunu hatırlat: bir önceki slayta dönüp ağırlık değiştirirsen bu sıralama canlı olarak değişir.</aside>
+</section>
+
+<!-- 13 OPTİMİZASYON -->
+<section class="slide" data-title="Optimizasyon">
+ <div class="inner">
+  <p class="kicker">Optimizasyon</p>
+  <h2>Optimum liderlik karması ve kişiselleştirmenin değeri</h2>
+  <div class="cols w64">
+   <div class="chart-box"><h4>Strateji uzayı: performans ve kuşak dengesi (her nokta bir strateji)</h4><div class="cv tall"><canvas id="chOpt"></canvas></div></div>
+   <div>
+    <div class="ctrl"><label>Adalet ağırlığı γ <output id="gOut"></output></label><input type="range" id="gIn" min="0" max="10" step="0.5" value="2"></div>
+    <div class="btn-row"><button class="btn" id="runOpt">Optimize et</button><span id="optBusy"></span></div>
+    <div class="card flat" id="optBox"><p class="small muted">Optimizasyon slayt açıldığında başlar.</p></div>
+   </div>
+  </div>
+ </div>
+ <aside class="notes">Gri bulut: rastgele 900 strateji. Turuncu çizgi: Pareto sınırı, yani performansı düşürmeden dengeyi artıramayacağınız stratejiler. Yıldız: J’yi en büyükleyen strateji. Sağdaki tablo, liderlik karmasının her kuşağa ayrı ayarlanmasının ek değerini gösteriyor. γ’yı artırıp optimumun nasıl kaydığını göster.</aside>
+</section>
+
+<!-- 14 DUYARLILIK -->
+<section class="slide" data-title="Duyarlılık analizi">
+ <div class="inner">
+  <p class="kicker">Belirsizlik ve duyarlılık</p>
+  <h2>Sonuçlar ne kadar sağlam?</h2>
+  <div class="btn-row"><div class="ctrl" style="min-width:16em;margin:0 1em 0 0"><label>Parametre belirsizliği ± <output id="pctOut"></output></label><input type="range" id="pctIn" min="0.05" max="0.5" step="0.05" value="0.2"></div><button class="btn" id="runMC">Monte Carlo (N = 300)</button><span id="mcBusy"></span></div>
+  <div class="cols">
+   <div class="chart-box"><h4>Sıra kabul edilebilirliği: her senaryonun 1.–5. sırada olma olasılığı</h4><div class="cv"><canvas id="chAcc"></canvas></div></div>
+   <div class="chart-box"><h4>Tornado: S5 (Hibrit) için P̄ değişimi (her parametre tek tek ±)</h4><div class="cv"><canvas id="chTor"></canvas></div></div>
+  </div>
+  <p class="tiny" style="margin-top:.6em">Her Monte Carlo koşusunda 10 küresel parametre ile tüm β ve δ değerleri bağımsız olarak düzgün dağılımla ±% oranında bozulur. Senaryolar yeniden simüle edilir ve TOPSIS ile yeniden sıralanır (SMAA mantığı).</p>
+ </div>
+ <aside class="notes">Burada mesaj şu: parametreler ±%20 belirsiz olsa bile sıralamanın büyük ölçüde korunduğunu görüyoruz. Tornado, kalibrasyon çabasının nereye yoğunlaşması gerektiğini söylüyor; en etkili parametreler saha verisiyle öncelikle tahmin edilmeli.</aside>
+</section>
+
+<!-- 15 GEÇERLİLİK -->
+<section class="slide" data-title="Geçerlilik ve güvenilirlik">
+ <div class="inner">
+  <p class="kicker">Model geçerliliği ve güvenilirliği</p>
+  <h2>Model kendini sınıyor: canlı test paketi</h2>
+  <div class="cols w64">
+   <div class="card">
+    <div class="btn-row"><button class="btn" id="runVal">Testleri yeniden çalıştır</button><span id="valBusy"></span><span id="valSummary" class="small"></span></div>
+    <div id="valList"></div>
+   </div>
+   <div>
+    <div class="card flat" style="margin-bottom:.8em"><h3>Çerçeve</h3><p class="small">Sistem dinamiği modellerinde geçerlilik tek bir istatistik değil, <strong>yapı ve davranış testlerinden oluşan bir süreçtir</strong> (Barlas, 1996; Sterman, 2000, Bölüm 21).</p>
+     <ul class="clean small"><li><b>Yapı:</b> sınırlar, simetri, ölçek değişmezliği</li><li><b>Uç koşul:</b> analitik çözümle karşılaştırma</li><li><b>İşaret:</b> beklenen nedensel yönler</li><li><b>Sayısal:</b> yakınsama, yeniden üretilebilirlik</li><li><b>ÇKKV:</b> tutarlılık, sıra tersinmesi, ağırlık sağlamlığı</li><li><b>Ampirik:</b> saha verisi bekliyor</li></ul></div>
+    <div class="note-box info"><strong>Geliştirme notu:</strong> İşaret testleri, ilk sürümde iletişim ve yenilik denklemlerindeki (1+ψ), (1+χ) normalizasyonunun ters işaretli etki ürettiğini <strong>yakaladı</strong>. Model v1.1’de düzeltildi. Test paketinin amacı tam olarak budur.</div>
+    <div class="card flat" style="margin-top:.8em"><h3>Yazılım güvenliği</h3><p class="small">Statik sayfa; <strong>veri toplamaz</strong>, sunucuya bağlanmaz (CSP: <code>connect-src 'none'</code>). Tüm kütüphaneler yerel, internetsiz çalışır. Kaynak kod açık ve denetlenebilir.</p></div>
+   </div>
+  </div>
+ </div>
+ <aside class="notes">Bu slayt hakem gözünde en değerli slayt. “Geçti” sonuçlarının yanında iki tane “veri bekliyor” var. Bunu saklamıyoruz; ampirik doğrulama makalenin bir sonraki aşaması. Geliştirme notunu anlat: test paketi gerçek bir hatayı yakaladı.</aside>
+</section>
+
+<!-- 16 BULGULAR -->
+<section class="slide" data-title="Bulgular">
+ <div class="inner">
+  <p class="kicker">Bulgular <span class="pill warn">model içi · gösterim parametreleri</span></p>
+  <h2>Ne öğrendik?</h2>
+  <div class="cols" id="findings"><p class="busy">Hesaplanıyor…</p></div>
+ </div>
+ <aside class="notes">Bulgular canlı hesaplanıyor; parametre değişirse metin de değişir. Ana mesaj: (1) tek ölçüt yanıltır, (2) uç stratejiler yerine karma stratejiler kazanır, (3) kişiselleştirmenin ölçülebilir bir değeri var, (4) sıralama belirsizliğe karşı sağlam. Bunların “varsayımsal parametre altında önerme” olduğunu, ampirik teyidin makalede yapılacağını söyle.</aside>
+</section>
+
+<!-- 17 YÖNETSEL ÇIKARIMLAR -->
+<section class="slide" data-title="Yönetsel çıkarımlar">
+ <div class="inner">
+  <p class="kicker">Uygulama</p>
+  <h2>Yöneticiler için kuşak-duyarlı karar döngüsü</h2>
+  <div class="steps">
+   <div class="step"><h3>Ölç</h3><p>Kuşak/segment bazında liderlik uyumu (β) ve kanal tercihi (δ) için kısa nabız anketi</p></div>
+   <div class="step"><h3>Simüle et</h3><p>Aday stratejileri 12–36 aylık ufukta modelde dene; gecikmeli etkileri gör</p></div>
+   <div class="step"><h3>Ağırlıklandır</h3><p>Yönetim ekibi ölçüt önceliklerini AHP ile belirlesin; CR ile tutarlılığı denetle</p></div>
+   <div class="step"><h3>Karar ver</h3><p>TOPSIS sıralaması ve Pareto sınırı üzerinden adalet–performans dengesini seç</p></div>
+   <div class="step"><h3>İzle ve güncelle</h3><p>Gerçekleşen göstergelerle parametreleri yeniden kalibre et (Bayesçi güncelleme)</p></div>
+  </div>
+  <div class="cols c3" style="margin-top:1.4em">
+   <div class="card flat"><h3>Tek tip yerine karma</h3><p class="small">Saf tek bir liderlik tarzı, azalan getiri nedeniyle karma stratejilerin gerisinde kalır.</p></div>
+   <div class="card flat"><h3>Kanal tasarımı bir liderlik kararıdır</h3><p class="small">Dijital kanal payı u, kuşak bileşimine göre ayarlanmalıdır. Tek kanal bazı kuşakları dışarıda bırakır.</p></div>
+   <div class="card flat"><h3>Adalet açıkça fiyatlanmalı</h3><p class="small">γ parametresi, kuşaklar arası dengeye verilen önemi şeffaf ve tartışılabilir kılar.</p></div>
+  </div>
+ </div>
+ <aside class="notes">Uygulayıcı yöneticilere doğrudan hitap et. Model bir kahin değil, bir tartışma ve deney aracıdır.</aside>
+</section>
+
+<!-- 18 SINIRLILIKLAR VE YOL HARİTASI -->
+<section class="slide" data-title="Sınırlılıklar ve yol haritası">
+ <div class="inner">
+  <p class="kicker">Sınırlılıklar ve gelecek çalışma</p>
+  <h2>Bildiriden makaleye yol haritası</h2>
+  <div class="cols">
+   <div class="card">
+    <h3>Sınırlılıklar</h3>
+    <ul class="clean small">
+     <li>Parametreler gösterim amaçlıdır; henüz ampirik kalibrasyon yoktur.</li>
+     <li>Kuşak etkisi; yaş, kariyer evresi ve dönem etkilerinden ayrıştırılmamıştır (Rudolph vd., 2018).</li>
+     <li>C kuşağı davranışsal bir segmenttir ve diğer kuşaklarla örtüşebilir.</li>
+     <li>Toplulaştırılmış (aggregate) yapı bireysel heterojenliği temsil etmez.</li>
+     <li>Alfa kuşağı yalnızca projeksiyon olarak ele alınmıştır.</li>
+    </ul>
+   </div>
+   <div class="card">
+    <h3>Makale aşaması</h3>
+    <ul class="clean small">
+     <li><b>Veri:</b> çok kuşaklı örgütlerde liderlik tarzı, motivasyon ve iletişim doyumu anketi; mümkünse panel tasarım</li>
+     <li><b>Kalibrasyon:</b> β, δ için yapısal eşitlik modeli / hiyerarşik Bayesçi tahmin</li>
+     <li><b>Doğrulama:</b> davranış yeniden üretimi (R², Theil U istatistikleri; Sterman, 2000)</li>
+     <li><b>Genişletme:</b> ajan tabanlı modelle bireysel heterojenlik; yaş–dönem–kuşak ayrıştırması</li>
+     <li><b>Açık bilim:</b> kod, veri ve test paketi açık depoda</li>
+    </ul>
+   </div>
+  </div>
+ </div>
+ <aside class="notes">Sınırlılıkları açıkça söylemek güven verir. Makale aşamasında katılımcı kurum arayışını burada dile getirebilirsin: “Veri toplamak için iş birliği yapmak isteyen kurumlarla görüşmekten memnuniyet duyarım.”</aside>
+</section>
+
+<!-- 19 KAYNAKÇA -->
+<section class="slide" data-title="Kaynakça">
+ <div class="inner">
+  <p class="kicker">Kaynakça</p>
+  <h2>Kaynaklar</h2>
+  <ol class="refs">
+   <li>Barlas, Y. (1996). Formal aspects of model validity and validation in system dynamics. <em>System Dynamics Review, 12</em>(3), 183–210.</li>
+   <li>Costanza, D. P., Badger, J. M., Fraser, R. L., Severt, J. B., &amp; Gade, P. A. (2012). Generational differences in work-related attitudes: A meta-analysis. <em>Journal of Business and Psychology, 27</em>(4), 375–394.</li>
+   <li>Denison, D. R., Hooijberg, R., &amp; Quinn, R. E. (1995). Paradox and performance: Toward a theory of behavioral complexity in managerial leadership. <em>Organization Science, 6</em>(5), 524–540.</li>
+   <li>Dimock, M. (2019). <em>Defining generations: Where Millennials end and Generation Z begins.</em> Pew Research Center.</li>
+   <li>Forrester, J. W. (1961). <em>Industrial dynamics.</em> MIT Press.</li>
+   <li>Hwang, C.-L., &amp; Yoon, K. (1981). <em>Multiple attribute decision making: Methods and applications.</em> Springer.</li>
+   <li>McCrindle, M., &amp; Wolfinger, E. (2009). <em>The ABC of XYZ: Understanding the global generations.</em> UNSW Press.</li>
+   <li>Repenning, N. P., &amp; Sterman, J. D. (2001). Nobody ever gets credit for fixing problems that never happened. <em>California Management Review, 43</em>(4), 64–88.</li>
+   <li>Rousseau, D. M. (2006). Is there such a thing as “evidence-based management”? <em>Academy of Management Review, 31</em>(2), 256–269.</li>
+   <li>Rudolph, C. W., Rauvola, R. S., &amp; Zacher, H. (2018). Leadership and generations at work: A critical review. <em>The Leadership Quarterly, 29</em>(1), 44–57.</li>
+   <li>Saaty, T. L. (1980). <em>The analytic hierarchy process.</em> McGraw-Hill.</li>
+   <li>Saltelli, A., Ratto, M., Andres, T., Campolongo, F., Cariboni, J., Gatelli, D., Saisana, M., &amp; Tarantola, S. (2008). <em>Global sensitivity analysis: The primer.</em> Wiley.</li>
+   <li>Sterman, J. D. (2000). <em>Business dynamics: Systems thinking and modeling for a complex world.</em> Irwin/McGraw-Hill.</li>
+  </ol>
+ </div>
+ <aside class="notes">Kaynakça slaytında durma; soru-cevaba geç.</aside>
+</section>
+
+<!-- 20 TEŞEKKÜR -->
+<section class="slide thanks" data-title="Teşekkür">
+ <div class="inner">
+  <div class="cols w64" style="align-items:center">
+   <div>
+    <img class="logo" src="assets/logo.png" alt="" style="height:64px;margin-bottom:2vh">
+    <h1>Teşekkürler</h1>
+    <p class="lead">Modeli telefonunuzdan deneyin, parametreleri değiştirin, kendi kurumunuzun senaryosunu kurun.</p>
+    <p><strong>Cumali YAŞAR</strong><br><span class="small">Çanakkale Onsekiz Mart Üniversitesi</span></p>
+    <p class="small">Etkileşimli sunum ve kaynak kod:<br><a href="https://cyasar.github.io/icmo2026/">cyasar.github.io/icmo2026</a> · <a href="https://github.com/cyasar/icmo2026">github.com/cyasar/icmo2026</a></p>
+   </div>
+   <div style="text-align:center"><img class="qr" src="assets/qr.svg" alt="cyasar.github.io/icmo2026 adresine giden QR kod"><p class="tiny">cyasar.github.io/icmo2026</p></div>
+  </div>
+ </div>
+ <aside class="notes">QR’ı ekranda bırak ve sorulara geç. Soru gelirse ilgili slayda sayıyla atla: sayı tuşu + Enter (ör. 9 Enter simülasyona gider).</aside>
+</section>
+
+</main>
+
+<nav class="navbar">
+ <div class="brand"><img src="assets/logo.png" alt=""><span>Kuşak-Duyarlı Yönetim Modeli · C. YAŞAR</span></div>
+ <div class="nav">
+  <button id="btnNotes" title="Konuşmacı notları (N)">Notlar</button>
+  <button id="btnPrev" aria-label="Önceki slayt">←</button>
+  <span class="count" id="count">1 / 1</span>
+  <button id="btnNext" aria-label="Sonraki slayt">→</button>
+  <button id="btnFs" title="Tam ekran (F)">⛶</button>
+ </div>
+</nav>
+<div class="notes-panel" id="notesPanel"></div>
+
+<script src="assets/vendor/katex/katex.min.js"></script>
+<script src="assets/vendor/katex/auto-render.min.js"></script>
+<script src="assets/vendor/chart.umd.min.js"></script>
+<script src="assets/model.js"></script>
+<script src="assets/app.js"></script>
+</body>
+</html>
